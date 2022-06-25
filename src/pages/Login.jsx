@@ -28,7 +28,7 @@ const Login = () => {
             className="d-flex justify-content-start  btn-custom "
             type="submit"
           >
-            <Link className="text-decoration-none" to="/Dashboard">Login Now</Link>
+            <Link className="text-decoration-none" to="/DashboardTwo">Login Now</Link>
           </Button>
           <p className="text-end mt-4 text-light">Haven't an account?  <span className="title-spn">Sign Up</span></p>
         </Form>
