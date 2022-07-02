@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaInstagramSquare, FaGem, FaLinkedinIn, FaCopyright, FaHouseUser, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { SiFacebook, SiTwitter } from 'react-icons/si';
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -66,7 +67,7 @@ const SignUp = () => {
             className="d-flex justify-content-start  btn-custom "
             type="submit"
           >
-            SignUp Now
+            <Link className="text-decoration-none" to="/AdminDash2">SignUp Now</Link>
           </Button>
           <p className="text-start mt-4 text-light">Have an account? <span className="title-spn">Login</span></p>
         </Form>
