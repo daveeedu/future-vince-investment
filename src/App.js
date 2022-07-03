@@ -17,19 +17,21 @@ import Withdrawal from './components/dashboard/withdraw/Withdrawal';
 import Users from './components/admin/Users';
 import AdminDash from './components/admin/AdminDash';
 import AdminDash2 from './components/admin/AdminDash2';
-import DeleteModal from './components/modal/DeleteModal'
+import {useState} from 'react';
+// import DeleteModal from './components/modal/DeleteModal'
 
 function App() {
+  const [isSignedUp, setIsSignedUp] = useState(false);
   return (
     <div className="App">
       <HashRouter>
-        <Navigationbar />
+        <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/AboutPage" element={<AboutPage />}/>
           <Route path="/ContactPage" element={<SignUp />}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/login" element={<Login isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>}/>
+          <Route path="/signup" element={<SignUp isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/dashboardtwo" element={<DashboardTwo />}/>
           <Route path="/invest" element={<Invest />}/>
@@ -42,8 +44,8 @@ function App() {
           <Route path="/users"  element={<Users />}/>
           <Route path="/adminDash" element={<AdminDash />}/>
           <Route path="/adminDash2" element={<AdminDash2 />}/>
-          <Route path="/deleteModal" element={<DeleteModal />}/>
-        </Routes>
+          {/* <Route path="/deleteModal" element={<DeleteModal />}/> */}
+         </Routes>
       </HashRouter>
     </div>
   );
