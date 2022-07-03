@@ -704,3 +704,11 @@
   /* margin-top: 10% !important; */
   margin-bottom: 40% !important;
 }
+
+.errorMsg {
+  color: var(--bs-danger, red);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
