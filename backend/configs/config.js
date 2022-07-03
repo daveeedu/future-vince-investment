@@ -1,5 +1,7 @@
 if (require('express')().get('env') === "development") {
 require("dotenv").config();
+}else {
+    require("dotenv").config({path: "/etc/secrets/.env"});
 }
 
 const environments = {};

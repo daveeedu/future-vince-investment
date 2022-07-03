@@ -105,7 +105,7 @@ const corsOption = {
     if (
       /undefined/.test(origin) ||
       /localhost:\d{1,4}$/.test(origin) ||
-      /\.techchak\.com$/.test(origin)
+      /\.github\.io$/.test(origin)
     ) {
       callback(null, true);
     } else {
