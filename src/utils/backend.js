@@ -66,7 +66,7 @@ class BACKEND {
   getUser() {
 
     return this._API.get('/user').then(function (response) {
-      if (response.status == 200) {
+      if (response.status === 200) {
         return response.data
       } else {
         return false
