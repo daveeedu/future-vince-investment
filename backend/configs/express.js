@@ -123,8 +123,8 @@ const apiVersion = config.version;
 
 app.get(`/${apiVersion}`, (req, res, next) => {
   logger.info({method: req.method, path: req.originalUrl});
-   data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
-    name: "techchak-service",
+   const data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
+    name: "Vince-Service",
     version: "1.0.0",
   });
 
