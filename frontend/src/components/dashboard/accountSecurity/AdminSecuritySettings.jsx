@@ -1,9 +1,11 @@
 import React from "react";
 import AdminDash from "../../admin/AdminDash";
+import DashNavbar from "../../DashNavbar";
 
 const AdminSecuritySettings = () => {
   return (
     <div className="row feedback-bg-dash vh-100">
+      <DashNavbar />
       <AdminDash />
       <div className="col-md-8 text-start">
         <p className="text-light  fw-bold draw-hd-0 ">Security Settings</p>

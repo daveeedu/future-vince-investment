@@ -1,43 +1,36 @@
-// import React, { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
-// import Users from '../admin/Users';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-// function DeleteModal() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   return (
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         Launch demo modal
-//       </Button>
-
-//       <Modal show={show} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Delete</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>Confirm you want to delete this User!</Modal.Body>
-//         <Modal.Footer>
-//           <Button variant="secondary" onClick={handleClose}>
-//             Cancel
-//           </Button>
-//           <Button variant="primary" onClick={handleClose}>
-//             Delete
-//           </Button>
-//         </Modal.Footer>
-//       </Modal>
-//       {show && (
-//             <Users 
-//             handleShow={handleShow}
-//             show={show}
-//             setShow={setShow}/>
-//           )}
-//     </>
-//   );
-// }
+function DeleteModal(props) {
+    let { show, onHide, title, body, footer } = props;
 
 
-// export default DeleteModal();
+  return (
+    <Modal 
+      show={show} 
+      onHide={onHide}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+export default DeleteModal;

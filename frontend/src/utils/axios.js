@@ -2,7 +2,7 @@ import axios from 'axios';
 import Alert from './alert';
 
 const config = {
- backendUrl: "http://382a-102-67-21-240.ngrok.io/v1",
+ backendUrl: "http://localhost:7000/v1",
 }
 // path = require('path'),
 // Alert = require(path.resolve('utils', 'alert'))

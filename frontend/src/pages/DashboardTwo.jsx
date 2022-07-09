@@ -1,10 +1,12 @@
 import React from "react";
 import Dashboard from "./Dashboard";
 import BACKEND from "../utils/backend";
+import DashNavbar from "../components/DashNavbar";
 
 const DashboardTwo = () => {
   return (
     <div className="feedback-bg-dash-2  ">
+      <DashNavbar />
       <div className="row dash-text">
       <Dashboard />
       <div className="col-md-8 row">

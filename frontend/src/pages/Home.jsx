@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import InvestmentPlans from "../components/InvestmentPlans";
@@ -22,8 +22,11 @@ import Scroller from "../components/Scroller";
 import BACKEND from "../utils/backend";
 import History from "../utils/history";
 import Storage from "../utils/storage";
+import Navigationbar from "../components/Navigationbar";
 
 const Home = () => {
+	const [isSignedUp, setIsSignedUp] = useState(false);
+
 	if (Storage.get("token")) {
 		new BACKEND()
 			.isAuthenticated()
@@ -40,6 +43,7 @@ const Home = () => {
 
 	return (
 		<div>
+			<Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
 			<Scroller />
 			<Hero />
 			<AboutUs />

@@ -4,10 +4,12 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { BiEnvelope } from "react-icons/bi";
 import { FaUserAltSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom'
-// import DeleteModal from '../modal/DeleteModal'
+import DeleteModal from '../modal/DeleteModal'
 
 const Users = (props) => {
+
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div className="row feedback-bg-dash-4 ">
       <AdminDash />
@@ -142,7 +144,7 @@ const Users = (props) => {
                   <a href="#" className="text-decoration-none text-light" title="Edit">
                     <FaEdit />
                   </a>
-                  <a href="#" className="text-decoration-none text-light ms-2" title="Delete" >
+                  <a href="#" className="text-decoration-none text-light ms-2" title="Delete" onClick={() => setModalShow(true)}>
                   <RiDeleteBin5Line />
                   </a>
                   <a href="#" className="text-decoration-none text-light ms-2" title="Suspend">
@@ -153,6 +155,10 @@ const Users = (props) => {
               </tbody>
           </table>  
         </div>
+        <DeleteModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       </div>
   );
 }
