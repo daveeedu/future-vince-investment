@@ -15,8 +15,9 @@ BodyValidator = require('../../middlewares/bodyValidator');
 // api.get('/share/linkedin/cb', validateOAuthFlow, controller.getUserAccessToken, controller.getLinkedinUser);
 // api.get('/share', controller.sharePostToLinkedin);
 
+api.put('/topup/:pid', validateAuthorization, validateUserAvailability, validateBuilderAndAdmin, BodyValidator.validateTopUp, controller.topUp);
 
-// api.post('/', validateAuthorization, validateUserAvailability, validateBuilderAndAdmin, BodyValidator.createProject, controller.createProject);
+api.post('/transaction', validateAuthorization, validateUserAvailability, BodyValidator.transaction, controller.createTransaction);
 // api.get('/all', validateAuthorization, validateUserAvailability, controller.getFilteredProjects);
 // api.get('/:id', validateAuthorization, validateUserAvailability, controller.getProjectById);
 // api.put('/:id', validateAuthorization, validateUserAvailability, validateBuilderAndAdmin, BodyValidator.updateProject, controller.updateProject);

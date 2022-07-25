@@ -33,7 +33,9 @@ const {
   supportGroupChatSchema,
   testimonySchema,
   upgradeUserSchema,
+  transactionSchema,
   joinWaitlist,
+  validateTopUp
 } = require('../utils/request.schema');
 const validator = require('../utils/validator');
 
@@ -56,7 +58,7 @@ class BodyValidator {
             res.locals.validatedBody = valid.data;
             next();
          } else res.status(valid.code).json(valid);
-      } catch (err) {
+      } catch (err) { 
          logger.error(err);
 
          res.status(HTTP_INTERNAL_SERVER_ERROR).json(ApiResponse.gen(HTTP_INTERNAL_SERVER_ERROR, INTERNAL_SERVER_ERROR, err));
@@ -64,18 +66,18 @@ class BodyValidator {
    }
 
    static async signup(req, res, next) {
-    const pp = req.body.privacyPolicy;
-    req.body.privacyPolicy = pp === "on" ? true : false;
-    console.log(req.body)
-      let schema;
-      if ([ADMIN, SUPERADMIN].includes(req.body.type)) {
-         schema = adminSignupSchema;
+     let schema;
+     if ([ADMIN, SUPERADMIN].includes(req.body.type)) {
+       schema = adminSignupSchema;
       } else {
-         
+      const pp = req.body.privacyPolicy;
+        req.body.privacyPolicy = pp === "on" ? true : false;
+        console.log("In else")
          req.body.merchantId = H.generateRandomString(10, "alphabetic");
          schema = userSignupSchema;
          logger.info(req.body.email+" marchant ID is: " + req.body.merchantId);
       }
+
 
       
       if ([ADMIN, SUPERADMIN, USER].includes(req.body.type)) {
@@ -89,6 +91,14 @@ class BodyValidator {
 
   static async login(req, res, next) {
     await new BodyValidator().u(accountSchema, {
+      req,
+      res,
+      next,
+    });
+  }
+
+  static async validateTopUp(req, res, next) {
+    await new BodyValidator().u(validateTopUp, {
       req,
       res,
       next,
@@ -139,11 +149,11 @@ class BodyValidator {
       });
     }
 
-    static async  updateProject (req, res, next) {
+    static async  transaction (req, res, next) {
       if (req.body.tags instanceof Array === false && req.body.tags) {
         req.body.tags = req.body.tags.split(',');
       }
-      await new BodyValidator().u(updateProjectSchema, {
+      await new BodyValidator().u(transactionSchema, {
         req,
         res,
         next

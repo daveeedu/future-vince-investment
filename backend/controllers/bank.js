@@ -1,0 +1,24 @@
+const bankHandler = require("../modules/bank/handler");
+
+exports.createTransaction = async (req, res, next) => {
+  try {
+    const data = res.locals.validatedBody;
+    const bank = await bankHandler.createTransaction(data, res.locals.user.pid);
+    res.status(bank.code).json(bank);
+  } catch (err) {
+    logger.error(err);
+    res.status(err.code).json(err);
+  }
+}
+
+exports.topUp = async (req, res, next) => {
+  try {
+    const data = res.locals.validatedBody;
+    
+    const bank = await bankHandler.update(data, req.params.pid, req.query.activityId);
+    res.status(bank.code).json(bank);
+  } catch (err) {
+    logger.error(err);
+    res.status(err.code).json(err);
+  }
+}

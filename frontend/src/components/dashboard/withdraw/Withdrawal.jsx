@@ -1,9 +1,11 @@
 import React from "react";
 import Dashboard from "../../../pages/Dashboard";
+import DashNavbar from "../../DashNavbar";
 
 const Reinvest = () => {
   return (
     <div className="row feedback-bg-dash vh-100">
+      <DashNavbar />
       <Dashboard />
       <div className="col-md-8 text-strat dash-text">
         <h1 className="text-light text-start draw-hd mt-5">Withdraw</h1>

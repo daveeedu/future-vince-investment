@@ -1,11 +1,8 @@
 'use strict';
-
 const s3Upload = require('../../utils/file_upload/s3UploadAdaptor'),
   s3 = require('../../utils/file_upload/s3UploadAdapt'),
-  ApiResponse = require('../../utils/http.response'),
-  REMOVEBG = require('../../utils/removebg'),
-  fs = require('fs'),
-  path = require('path');
+  ApiResponse = require('../../utils/http.response');
+
 const {
   HTTP_INTERNAL_SERVER_ERROR,
   HTTP_OK,
@@ -20,26 +17,40 @@ const {
 const AccountService = require('../../services/account.service');
 const ProfileService = require('../../services/profile.service');
 const SYSTEM = require('../../services/system.service');
+const Bank = require('../../services/bank.service');
+const NotiificationService = require('../../services/notification.service');
 
-const ColorUtil = require('../../utils/department.color');
-
-const { USER } = require('../../utils/role');
 
 exports.getLoggedInUser = async (locals) => {
-  const { id, role } = locals;
+  const {
+    pid,
+    id,
+    role
+  } = locals;
   const account = await AccountService.getAccountById(id);
   const profile = await ProfileService.getProfileByAccountId({
     user: id,
     role,
   });
 
+  if (profile) {
+    profile.bank = await (await Bank.retrieve(profile._id)).data
+    profile.activities = await (await NotiificationService.getActivity(pid))
+  }
+  // if(role === 1) {
+    profile.totalInvested = await Bank.getTotalInvested();
+  // }
   account.data = profile;
   return account;
 };
 
 exports.getUserById = async (req) => {
-  const { id } = req.params;
-  let { filter } = req.query;
+  const {
+    id
+  } = req.params;
+  let {
+    filter
+  } = req.query;
 
   if (filter) {
     const dataRequested = filter.split(',');
@@ -63,6 +74,11 @@ exports.getUserById = async (req) => {
   } else throw ApiResponse.gen(HTTP_NOT_FOUND, ACCOUNT_NOT_FOUND);
 };
 
+exports.getAllUsersActivities = async () => {
+  const activities = await NotiificationService.getAllActivities();
+  return ApiResponse.gen(HTTP_OK, 'Activities retrieved successfully', activities);
+}
+
 exports.deleteUserById = async (id) => {
   const account = await AccountService.deleteAccount(id);
 
@@ -80,8 +96,7 @@ exports.updateAccount = async (body) => {
   if (Object.keys(body).includes('password')) {
     data = await AccountService.updateAccount(body.id, body.data);
   } else
-    data = await ProfileService.updateProfileById(
-      {
+    data = await ProfileService.updateProfileById({
         id: body.id,
         role: body.role,
       },
@@ -91,7 +106,11 @@ exports.updateAccount = async (body) => {
   return data;
 };
 
-exports.uploadImage = async ({ id, role, pid }, body) => {
+exports.uploadImage = async ({
+  id,
+  role,
+  pid
+}, body) => {
   try {
     // const tempFilePath = path.resolve("uploads/tmp"),
     //   fileName = tempFilePath.concat('/removebg.png');

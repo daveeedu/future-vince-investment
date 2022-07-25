@@ -21,6 +21,16 @@ exports.getUserById = async (req, res, next) => {
   }
 };
 
+exports.getAllUsersActivities = async (req, res, next) => {
+  try {
+    const activities = await userHandler.getAllUsersActivities(req);
+    res.status(activities.code).json(activities);
+  } catch (err) {
+    logger.error(err);
+    res.status(err.code).json(err);
+  }
+}
+
 exports.deleteUserById = async (req, res, next) => {
   try {
     const { id } = req.params;

@@ -29,7 +29,8 @@ const signin = async (payload) => {
 	const res = await API.login(payload);
   if(res){
     Storage.set("token", res.data)
-    History.push("dashboardtwo")
+				if(res.data.type.toLowerCase() === 'user') History.push("dashboardtwo")
+    else History.push("adminDash2")
   }
 };
 
@@ -45,7 +46,7 @@ const Login = ({ isSignedUp, setIsSignedUp }) => {
 		} else throw new Error("Invalid input key name in form!");
 	}
 
-	return isSignedUp ? (
+	return !isSignedUp ? (
 		<div className=" backgrnd-0 ">
 			<div className="">
 				<div className="signup-head signUp-border2">
@@ -86,13 +87,11 @@ const Login = ({ isSignedUp, setIsSignedUp }) => {
 					</Button>
 					<p className="text-end mt-4 text-light">
 						Haven't an account?{" "}
-						<span
+						<a style={{textDecoration: "none"}}
 							className="title-spn cursor-pointer"
-							onClick={(e) => {
-								setIsSignedUp(false);
-							}}>
+							href="#/SignUp">
 							Sign Up
-						</span>
+						</a>
 					</p>
 				</Form>
 			</div>
