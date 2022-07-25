@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
-        <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>
+        {/* <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/> */}
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/AboutPage" element={<AboutPage />}/>

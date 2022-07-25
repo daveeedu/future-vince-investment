@@ -16,6 +16,13 @@ api.get(
 );
 
 api.get(
+  '/all/activities',
+  validateAuthorization,
+  validateUserAvailability,
+  controller.getAllUsersActivities
+);
+
+api.get(
   '/all',
   validateAuthorization,
   validateUserAvailability,

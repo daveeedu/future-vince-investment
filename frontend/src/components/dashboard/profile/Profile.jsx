@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Dashboard from "../../../pages/Dashboard";
 import { TbLock } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
+import EditPhoneModal from "../../modal/EditPhoneModal";
+import DashNavbar from "../../DashNavbar";
 
 const Profile = () => {
+
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div className="feedback-bg-dash-2  py-5">
+      <DashNavbar />
       <Dashboard />
       <div className="col-md-9 dash-text ">
         <div className="card rein-crd-5 mt-1">
@@ -20,7 +26,7 @@ const Profile = () => {
                 <div className="d-flex justify-content-between ">
                   <h6 className=" my-3">Username</h6>
                   <p className=" my-3">Tom Golden</p>
-                  <IoIosArrowForward className=" my-3"/>
+                  <IoIosArrowForward className=" my-3 edit-profile" onClick={() => setModalShow(true)}/>
                 </div>
                 <hr className="text-white"></hr>
 
@@ -38,7 +44,7 @@ const Profile = () => {
                 <p className=" my-3">
                  08121351325
                 </p>
-                <IoIosArrowForward className=" my-3"/>
+                <IoIosArrowForward className=" my-3 edit-profile" onClick={() => setModalShow(true)}/>
               </div>
               <h6 className=" my-3 basic">PREFERENCES</h6>
 
@@ -58,6 +64,14 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    <EditPhoneModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+      <EditPhoneModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };

@@ -298,7 +298,7 @@ exports.ninja4 = (d, v) => {
 
 exports.getRoleName = role => {
     switch(role) {
-        case 0: return "Super Admin"
+        case 0: return "SuperAdmin"
         
         case 1: return "Admin";
         
@@ -309,7 +309,7 @@ exports.getRoleName = role => {
 exports.getRoleNumber = role => {
     switch(role.toLowerCase()) {
         case "super admin": 
-        case "superAdmin": return 0;
+        case "superadmin": return 0;
         
         case "admin": return 1;
         

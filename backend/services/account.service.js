@@ -4,9 +4,9 @@
 'use strict';
 const path = require('path');
 const AccountModel = require('../modules/account/model');
-const { ProfileModel } = require(path.resolve('modules/profile/model'));
-
-const Platform = require('./platform.service');
+const {
+  ProfileModel
+} = require(path.resolve('modules/profile/model'));
 const dayjs = require('dayjs');
 
 const {
@@ -29,7 +29,21 @@ const Bank = require('./bank.service');
 
 const ApiResponse = require(path.resolve('utils', 'http.response'));
 
-const { ADMIN, SUPERADMIN, USER, ACTIVE, INACTIVE, SUSPENDED, DELETED } = require('../utils/role');
+const {
+  ADMIN,
+  SUPERADMIN,
+  USER,
+  ACTIVE,
+  INACTIVE,
+  SUSPENDED,
+  DELETED
+} = require('../utils/role');
+
+// const status = {
+//   inactive: 0,
+//   active: 1,
+//   suspend: 2
+// }
 
 
 class Account extends AccountModel {
@@ -37,9 +51,9 @@ class Account extends AccountModel {
     try {
       const account = await this.findById(id);
       if (account) {
-        const result = filter
-          ? H.filter(account._doc, filter)
-          : account._doc;
+        const result = filter ?
+          H.filter(account._doc, filter) :
+          account._doc;
         return ApiResponse.gen(
           HTTP_OK,
           responseMessage.ACCOUNT_RETRIEVED,
@@ -64,9 +78,9 @@ class Account extends AccountModel {
       email,
     });
     if (account) {
-      const result = filter
-        ? H.filter(account._doc, filter)
-        : account._doc;
+      const result = filter ?
+        H.filter(account._doc, filter) :
+        account._doc;
       return result;
     }
     return null;
@@ -74,7 +88,11 @@ class Account extends AccountModel {
 
   static async createAccount(body) {
     try {
-      let { email, password, type } = body;
+      let {
+        email,
+        password,
+        type
+      } = body;
       type = H.getRoleNumber(type || "user");
       const user = await this.getAccountByEmail(email);
 
@@ -92,7 +110,7 @@ class Account extends AccountModel {
         if ([ADMIN, SUPERADMIN].includes(type) === false) {
 
 
-        } 
+        }
         const account = await this.create(data);
 
         // setup profile
@@ -105,18 +123,18 @@ class Account extends AccountModel {
 
         if ([USER].includes(type)) {
           profile.role = account.role;
-          
+
           // send notification
           await MailNotificationService.sendApplicationNotification({
             to: email,
             name: profile.name,
           });
-          
-            await MailNotificationService.sendVerificationEmail({
-              to: email,
-              name: profile.name,
-            });
-          
+
+          await MailNotificationService.sendVerificationEmail({
+            to: email,
+            name: profile.name,
+          });
+
         } else {
           // send notification
           await MailNotificationService.sendVerificationEmail({
@@ -144,7 +162,10 @@ class Account extends AccountModel {
     }
   }
 
-  static async login({ email, password }, referrer) {
+  static async login({
+    email,
+    password
+  }, referrer) {
     try {
       let user = await this.getAccountByEmail(email);
       if (user) {
@@ -162,8 +183,8 @@ class Account extends AccountModel {
             responseMessage.ONLY_FELLOWS_ACCESS
           );
         }
-        console.log([USER, ADMIN].includes(user.role) &&
-        user.status === SUSPENDED)
+        // console.log([USER, ADMIN].includes(user.role) &&
+        // user.status === SUSPENDED)
         if (
           [USER, ADMIN].includes(user.role) &&
           user.status === SUSPENDED
@@ -199,8 +220,10 @@ class Account extends AccountModel {
 
           return ApiResponse.gen(
             HTTP_OK,
-            responseMessage.ACCOUNT_LOGGED_IN,
-            token
+            responseMessage.ACCOUNT_LOGGED_IN, {
+              token,
+              type: H.getRoleName(user.role)
+            }
           );
         }
 
@@ -230,23 +253,26 @@ class Account extends AccountModel {
           responseMessage.ACCOUNT_NOT_FOUND
         );
       }
-      const { name } = await ProfileService.getProfileByAccountId({
+      const {
+        name
+      } = await ProfileService.getProfileByAccountId({
         user: id,
         filter: 'name',
       });
 
-      if (user.isEnabled) {
+      if ([ACTIVE, INACTIVE].includes(user.status)) {
         disabled = await this.findByIdAndUpdate(id, {
-          isEnabled: false,
+          status: SUSPENDED,
         });
         if (disabled) {
           delete disabled._doc.password;
           delete disabled._doc.passwordArchived;
 
-          await MailNotificationService.sendSuspensionMail({
-            to: user.email,
-            name: name,
-          });
+          // await MailNotificationService.sendSuspensionMail({
+          //   to: user.email,
+          //   name: name,
+          // });
+
           return ApiResponse.gen(
             HTTP_OK,
             responseMessage.ACCOUNT_DISABLED,
@@ -259,17 +285,17 @@ class Account extends AccountModel {
           );
       } else {
         enabled = await this.findByIdAndUpdate(id, {
-          isEnabled: true,
+          status: ACTIVE,
         });
         if (enabled) {
           delete enabled._doc.password;
           delete enabled._doc.passwordArchived;
 
-          await MailNotificationService.sendSuspensionRevokedMail({
-            to: enabled.email,
-            role: enabled.role,
-            name: name,
-          });
+          // await MailNotificationService.sendSuspensionRevokedMail({
+          //   to: enabled.email,
+          //   role: enabled.role,
+          //   name: name,
+          // });
           return ApiResponse.gen(
             HTTP_OK,
             responseMessage.ACCOUNT_ENABLED,
@@ -293,7 +319,9 @@ class Account extends AccountModel {
   static async updateApplicationStatus(id, status) {
     try {
       const user = await this.findById(id);
-      const { name } = await ProfileService.getProfileByAccountId({
+      const {
+        name
+      } = await ProfileService.getProfileByAccountId({
         user: id,
         filter: 'name',
       });
@@ -367,7 +395,9 @@ class Account extends AccountModel {
   static async deleteAccount(id) {
     try {
       const account = await this.findByIdAndDelete(id);
-      const { name } = await ProfileService.getProfileByAccountId({
+      const {
+        name
+      } = await ProfileService.getProfileByAccountId({
         user: id,
         filter: 'name',
       });
@@ -400,8 +430,12 @@ class Account extends AccountModel {
 
   static async resendVerificationEmail(id, pid) {
     try {
-      const { data } = await this.getAccountById(id);
-      const { name } = await ProfileService.getProfileByAccountId({
+      const {
+        data
+      } = await this.getAccountById(id);
+      const {
+        name
+      } = await ProfileService.getProfileByAccountId({
         user: id,
         filter: 'name',
       });
@@ -474,7 +508,9 @@ class Account extends AccountModel {
   static async changePassword(id, data) {
     try {
       const account = await this.findById(id);
-      const { name } = await ProfileService.getProfileByAccountId({
+      const {
+        name
+      } = await ProfileService.getProfileByAccountId({
         user: id,
         filter: 'name',
       });
@@ -549,7 +585,9 @@ class Account extends AccountModel {
     if (!user) {
       throw ApiResponse.gen(HTTP_NOT_FOUND, responseMessage.ACCOUNT_NOT_FOUND);
     }
-    const { name } = await ProfileService.getProfileByAccountId({
+    const {
+      name
+    } = await ProfileService.getProfileByAccountId({
       user: user._id,
       filter: 'name',
     });
@@ -622,7 +660,7 @@ class Account extends AccountModel {
 
     data.limit = parseInt(data.limit) || 10;
     data.skip = parseInt(data.skip) > 0 ? parseInt(data.skip) - 1 : 0;
-    
+    type = type || USER
     try {
       let filter = {
         role: type,
@@ -706,16 +744,14 @@ class Account extends AccountModel {
         ...filt,
       };
 
-      const aggregation = [
-        {
-          $lookup: {
-            from: 'profiles',
-            localField: '_id',
-            foreignField: 'user',
-            as: 'profile',
-          },
-        },
-      ];
+      const aggregation = [{
+        $lookup: {
+          from: 'profiles',
+          localField: '_id',
+          foreignField: 'user',
+          as: 'profile',
+        }
+      }];
 
       obj.limit = parseInt(obj.limit) || 10;
       obj.skip = parseInt(obj.skip) > 0 ? parseInt(obj.skip) - 1 : 0;
@@ -751,10 +787,14 @@ class Account extends AccountModel {
     }
   }
 
-  static async upgradeUser(id, { type }) {
-    const {data} = await this.getAccountById(id, 'role');
+  static async upgradeUser(id, {
+    type
+  }) {
+    const {
+      data
+    } = await this.getAccountById(id, 'role');
     logger.warn(data.role, type)
-    if(data.role === type) {
+    if (data.role === type) {
       throw ApiResponse.gen(HTTP_CONFLICT, `User is already a ${type.toUpperCase()}`);
     }
     const user = await this.findByIdAndUpdate(id, {
@@ -762,9 +802,14 @@ class Account extends AccountModel {
     });
 
     if (user) {
-      
-      if(type === ADMIN){
-        const { name} = await ProfileService.getProfileByAccountId({user:id, filter: 'name'})
+
+      if (type === ADMIN) {
+        const {
+          name
+        } = await ProfileService.getProfileByAccountId({
+          user: id,
+          filter: 'name'
+        })
         await MailNotificationService.ugmsg({
           to: user.email,
           name: name

@@ -16,6 +16,10 @@ const activities = new Schema({
     type: Number,
     default: 0
   },
+  transactionId: {
+    type: Schema.Types.ObjectId,
+    ref: 'transaction',
+  },
 }, {
   timestamps: true
 })

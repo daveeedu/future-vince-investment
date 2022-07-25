@@ -1,9 +1,11 @@
 import React from "react";
 import Dashboard from "../../../pages/Dashboard";
+import DashNavbar from "../../DashNavbar";
 
 const Reinvest = () => {
   return (
     <div className="row feedback-bg-dash vh-100">
+      <DashNavbar />
       <Dashboard />
       <div className="col-md-8 dash-text">
         <div className="card rein-crd">

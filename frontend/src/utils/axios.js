@@ -1,11 +1,7 @@
 import axios from 'axios';
 import Alert from './alert';
-
-const config = {
- backendUrl: "http://localhost:7000/v1",
-}
-// path = require('path'),
-// Alert = require(path.resolve('utils', 'alert'))
+import Storage from './storage'
+import config from './config';
 
 
 const API = axios.create({
@@ -13,23 +9,29 @@ const API = axios.create({
  timeout: 10000
 });
 
-API.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+API.defaults.headers.common['Authorization'] = `Bearer ${Storage.get('token')?.token}`;
 
 API.defaults.timeout = 10000;
 
 const handleSessionExpired = (error) => {
- const cb = () => window.location.href = '#/login',
+ console.log(error)
+ const cb = () => setTimeout(_=>window.location.href = '/', 4000),
  message = 'Session expired, please login again';
 
  if (error.response.status === 401) {
-  localStorage.removeItem('token');
+  Storage.remove('token')
   Alert({type: 'error', message, cb});
   
- }else if(error.response.status === 400 && error.response.data.message.indexOf('no token') > -1){
+ } else if(error?.response?.status === 400 && error?.response?.data?.message?.indexOf('no token') > -1){
   Alert({type: 'error', message});
  }
+ else if(error?.response?.status === 403 && error?.response?.data?.message?.toLowerCase()?.indexOf('account suspended!') > -1){
+  Storage.remove('token')
+  const message = 'Account suspended! you are being redirected...'
+  Alert({type: 'error', message, cb});
+ }
  else {
-  return Promise.reject(error.response.data);
+  return Promise.reject(error?.response?.data);
  }
 };
 
@@ -43,7 +45,7 @@ API.interceptors.request.use(config => {
  const cb = () => setTimeout(_=>window.location.href = '/', 2000),
  message = 'Session expired, please login again';
 
- if(localStorage.getItem('token') === null && window.location.href.indexOf('/Login') === -1 && window.location.href !== 'http://localhost:3000/'){
+ if(Storage.get('token')?.token === null && window.location.href.indexOf('/Login') === -1 && window.location.href !== 'http://localhost:3000/'){
   Alert({type: 'error', message});
  }
 
