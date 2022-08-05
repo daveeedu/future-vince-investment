@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const InvestmentPlans = () => {
   //create an array of objects
@@ -39,21 +39,29 @@ const InvestmentPlans = () => {
       days: "For 6 Days",
       amount: "$10000 - $10000000",
     },
-  ]
+  ];
 
   return (
     <div className=" invest-bg text-light">
-      <h1 className="pt-5 display-4 text-light">Investment <span className="title-spn">Plan</span></h1>
-      <p className="my-4">To make a solid investment, you have to know where you are investing. Find a plan <br></br> which is best for you.</p>
-      <div className="row my-5">
-        {investmentPlans.map(investmentPlan => (
-          <div className="col-3 ">
-            <div className=" cdStyles mx-auto">
+      <h1 className="pt-5 display-4 text-light">
+        Investment <span className="title-spn">Plan</span>
+      </h1>
+      <p className="my-4">
+        To make a solid investment, you have to know where you are investing.
+        Find a plan <br></br> which is best for you.
+      </p>
+      <div className="row py-5">
+        {investmentPlans.map((investmentPlan) => (
+          <div className="col-lg-3 col-md-6">
+            <div className=" cdStyles mx-auto my-2">
               <div className="pt-3">
                 <h3 className="title-spn">{investmentPlan.title}</h3>
               </div>
               <div className="card-body text-">
-                <p>{investmentPlan.roi} <span className="invest-cap btn">{investmentPlan.cap}</span></p>
+                <p>
+                  {investmentPlan.roi}{" "}
+                  <span className="invest-cap btn">{investmentPlan.cap}</span>
+                </p>
                 <hr className="title-spn mx-4"></hr>
                 <p>{investmentPlan.daly}</p>
                 <hr className="title-spn mx-4"></hr>
@@ -66,9 +74,8 @@ const InvestmentPlans = () => {
           </div>
         ))}
       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-
-export default InvestmentPlans
+export default InvestmentPlans;
