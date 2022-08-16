@@ -1,5 +1,5 @@
 import React from "react";
-import { ImWarning } from "react-icons/im"; 
+import { ImWarning } from "react-icons/im";
 import { FaUsers } from "react-icons/fa";
 
 const Note = () => {
@@ -7,8 +7,10 @@ const Note = () => {
     <div className=" invest-bg">
       <div className=" m-auto  card  note-custom">
         <div className="row ">
-          <div className="mt-4 "> 
-            <h3 className="note-1"><ImWarning className="display-5"/>   Please Note</h3>
+          <div className="mt-4 ">
+            <h3 className="note-1">
+              <ImWarning className="display-5" /> Please Note
+            </h3>
           </div>
         </div>
         <p className="my-3 text-light">
@@ -16,11 +18,13 @@ const Note = () => {
           balance at the end of each investment <br></br> cycle.
         </p>
       </div>
-      <div className=" m-auto refere-custom my-5">
+      <div className=" m-auto refere-custom  mt-5 pb-5">
         <div className="m-5">
           <div className="row">
             <div className="mt-4">
-              <h3 className="note-1"><FaUsers className="display-5"/> REFERRAL COMMISION 10%</h3>
+              <h3 className="note-1">
+                <FaUsers className="display-5" /> REFERRAL COMMISION 10%
+              </h3>
             </div>
           </div>
           <p className="my-3 text-light">
@@ -29,9 +33,7 @@ const Note = () => {
             the financial benefits.
           </p>
         </div>
-        <button className="btn btn-custom mb-3">
-          BECOME A MEMBER
-        </button>
+        <button className="btn btn-custom mb-3">BECOME A MEMBER</button>
       </div>
     </div>
   );

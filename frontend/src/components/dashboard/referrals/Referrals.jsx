@@ -5,14 +5,16 @@ import DashNavbar from "../../DashNavbar";
 
 const Reinvest = () => {
   return (
-    <div className="row feedback-bg-dash vh-100">
+    <div className="row feedback-bg-dash min-h-screen overflow-x-hidden">
       <DashNavbar />
       <Dashboard />
-      <div className="col-md-8 dash-text">
+      <div className="col-md-8 col-11 dash-text">
         <div className="card rein-crd-1">
           <div className="card-body my-3 ms-2">
             <h3 className="text-start text-dark">Refer Us & Earn</h3>
-            <p className="card-text text-start">Invite friends and earn 10% from their deposits.</p>
+            <p className="card-text text-start">
+              Invite friends and earn 10% from their deposits.
+            </p>
             <input
               type="text"
               className="form-control mb-4"
@@ -24,7 +26,9 @@ const Reinvest = () => {
               placeholder="Enter Amount"
             ></input>
             <div className="row text-start">
-              <h6 className=" my-3">My Referral <AiOutlineInfoCircle /></h6>
+              <h6 className=" my-3">
+                My Referral <AiOutlineInfoCircle />
+              </h6>
               <div className="col-md-4">
                 <h6 className=" ms-2">Referee</h6>
                 <hr></hr>

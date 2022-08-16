@@ -8,10 +8,12 @@ const Reinvest = () => {
       <DashNavbar />
       <Dashboard />
       <div className="col-md-8 dash-text">
-        <div className="card rein-crd">
+        <div className="card rein-crd me-sm-0 me-2 ">
           <div className="card-body">
             <hr className="mt-4"></hr>
-            <p className="card-text fw-bold text-start mt-5">Reinvestment Amount</p>
+            <p className="card-text fw-bold text-start mt-5">
+              Reinvestment Amount
+            </p>
             <input
               type="text"
               className="form-control mb-4"

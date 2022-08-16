@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import InvestmentPlans from "../components/InvestmentPlans";
@@ -25,43 +25,43 @@ import Storage from "../utils/storage";
 import Navigationbar from "../components/Navigationbar";
 
 const Home = () => {
-	const [isSignedUp, setIsSignedUp] = useState(false);
+  const [isSignedUp, setIsSignedUp] = useState(false);
 
-	if (Storage.get("token")) {
-		new BACKEND()
-			.isAuthenticated()
-			.then((user) => {
-        console.log(user)
-				if (user) {
-					Storage.set("user", user.data);
-					History.push("dashboardtwo");
-					console.log(user);
-				}
-			})
-			.catch(console.error);
-	}
+  if (Storage.get("token")) {
+    new BACKEND()
+      .isAuthenticated()
+      .then((user) => {
+        console.log(user);
+        if (user) {
+          Storage.set("user", user.data);
+          History.push("dashboardtwo");
+          console.log(user);
+        }
+      })
+      .catch(console.error);
+  }
 
-	return (
-		<div>
-			<Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
-			<Scroller />
-			<Hero />
-			<AboutUs />
-			<InvestmentPlans />
-			<Note />
-			<WhyChoseVice />
-			<LiveTrade />
-			<HowItWorks />
-			<Faq />
-			<UserFeedBacks />
-			<Team />
-			<DepositAndWithdrawal />
-			<RepresentativePost />
-			<News />
-			<Subscribe />
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="overflow-x-hidden">
+      <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
+      <Scroller />
+      <Hero />
+      <AboutUs />
+      <InvestmentPlans />
+      <Note />
+      <WhyChoseVice />
+      <LiveTrade />
+      <HowItWorks />
+      <Faq />
+      <UserFeedBacks />
+      <Team />
+      <DepositAndWithdrawal />
+      <RepresentativePost />
+      <News />
+      <Subscribe />
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
