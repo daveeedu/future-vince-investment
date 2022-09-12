@@ -17,6 +17,7 @@ exports.createTransaction = async (body, id) => {
   body.user = id;
   const bank = await BankService.createTransaction(body);
 
+  
   const {
     data
   } = bank;
@@ -25,6 +26,16 @@ exports.createTransaction = async (body, id) => {
     transactionId: data._id,
   }
   const notification = await NotificationService.updateActivity(activity, id);
+  bank.data._doc.activity = notification?.activities;
+  return bank;
+}
+
+exports.withdraw = async (amount, pid) => {
+  const activity = {
+    title: `$${amount} invested successfully`,
+    transactionId: data._id,
+  }
+  const notification = await NotificationService.updateActivity(activity, pid);
   bank.data._doc.activity = notification?.activities;
   return bank;
 }

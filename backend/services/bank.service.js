@@ -40,7 +40,9 @@ class BankService extends Bank {
   const bank = await this.findOne({user:id})
   if(data.amount) {
    bank._doc.balance += data.amount
+   bank._doc.invested += data.amount
   }
+
   if(data.profit) {
    bank._doc.profits = (parseFloat(data.profit)+parseFloat(bank.profits)).toFixed(2)
   }
@@ -72,8 +74,23 @@ class BankService extends Bank {
 
  static async createTransaction(data) {
   try{
+   let percentage;
+   const {user, plan} = data;
+   switch(plan?.toLowerCase()){
+    case "bronze plan": percentage = 18;
+    break;
+    case "silver plan": percentage = 21;
+    break;
+    case "diamond plan": percentage = 30;
+    break;
+    case "golden plan": percentage = 42;
+    break;
+    default: percentage = 18;
+   }
+
   const done = await Transaction.create(data);
-  logger.info(done)
+  await this.findOneAndUpdate({user}, {plan: {name: plan, percentage}})
+  
   if(done) {
    return gen(HTTP_CREATED, Transaction_CREATED, done)
   }else{
@@ -89,8 +106,8 @@ class BankService extends Bank {
  }
 
  static async getTotalInvested() {
-  const res = await Transaction.find();
-   const data = res.map(item => item.amount).reduce((a, b) => a + b)
+  const transactions = await Transaction.find();
+   const data = transactions.map(transaction => transaction.amount).reduce((a, b) => a + b)
   return data
  }
 
