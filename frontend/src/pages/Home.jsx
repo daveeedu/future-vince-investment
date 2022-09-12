@@ -40,27 +40,27 @@ const Home = () => {
 			.catch(console.error);
 	}
 
-	return (
-		<div>
-			<Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
-			<Scroller />
-			<Hero />
-			<AboutUs />
-			<InvestmentPlans />
-			<Note />
-			<WhyChoseVice />
-			<LiveTrade />
-			<HowItWorks />
-			<Faq />
-			<UserFeedBacks />
-			<Team />
-			<DepositAndWithdrawal />
-			<RepresentativePost />
-			<News />
-			<Subscribe />
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="overflow-x-hidden">
+      <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
+      <Scroller />
+      <Hero />
+      <AboutUs />
+      <InvestmentPlans />
+      <Note />
+      <WhyChoseVice />
+      <LiveTrade />
+      <HowItWorks />
+      <Faq />
+      <UserFeedBacks />
+      <Team />
+      <DepositAndWithdrawal />
+      <RepresentativePost />
+      <News />
+      <Subscribe />
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;

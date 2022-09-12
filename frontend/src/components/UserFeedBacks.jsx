@@ -33,9 +33,12 @@ const UserFeedBacks = () => {
         We are doing really good at this market and here are the words we loved
         to get from a <br></br> few of our users.
       </p>
-      <div className="feedbacks row">
+      <div className="feedbacks row px-3">
         {feedBacks.map((feedBack) => (
-          <div className="feedback col-3 border text-start " key={feedBack.id}>
+          <div
+            className="feedback col-lg-3 my-3 border text-start "
+            key={feedBack.id}
+          >
             <p className="m-3">{feedBack.msg}</p>
             <div className=" d-flex justify-content-end">
               <img className="feedback-img " src={feedBack.img} alt="user" />

@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import {
-	FaInstagramSquare,
-	FaLinkedinIn,
-	FaCopyright,
-} from "react-icons/fa";
+import { FaInstagramSquare, FaLinkedinIn, FaCopyright } from "react-icons/fa";
 import { SiFacebook, SiTwitter } from "react-icons/si";
 import propTypes from "prop-types";
 import SignUp from "./SignUp";
@@ -15,14 +11,14 @@ import History from "../utils/history";
 
 const API = new BACKEND();
 const model = {
-	email: "",
-	password: "",
-	type: "User",
+  email: "",
+  password: "",
+  type: "User",
 };
 const setState = (setFormData, value) => {
-	setFormData((data) => {
-		return { ...data, ...value };
-	});
+  setFormData((data) => {
+    return { ...data, ...value };
+  });
 };
 
 const signin = async (payload) => {
@@ -35,16 +31,16 @@ const signin = async (payload) => {
 };
 
 const Login = ({ isSignedUp, setIsSignedUp }) => {
-	const [formData, setFormData] = useState(model);
+  const [formData, setFormData] = useState(model);
 
-	function addData(e) {
-		let data = {},
-			key = e.target.getAttribute("name");
-		if (key in formData) {
-			data[key] = e.target.value;
-			setState(setFormData, data);
-		} else throw new Error("Invalid input key name in form!");
-	}
+  function addData(e) {
+    let data = {},
+      key = e.target.getAttribute("name");
+    if (key in formData) {
+      data[key] = e.target.value;
+      setState(setFormData, data);
+    } else throw new Error("Invalid input key name in form!");
+  }
 
 	return !isSignedUp ? (
 		<div className=" backgrnd-0 ">
@@ -124,8 +120,8 @@ const Login = ({ isSignedUp, setIsSignedUp }) => {
 };
 
 Login.propTypes = {
-	isSignedUp: propTypes.bool,
-	setIsSignedUp: propTypes.func,
+  isSignedUp: propTypes.bool,
+  setIsSignedUp: propTypes.func,
 };
 
 export default Login;

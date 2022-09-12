@@ -1,9 +1,9 @@
 const environment = {
   development: {
-   backendUrl: "http://localhost:7000/v1",
+   backendUrl: "https://api-vince.onrender.com/v1",
   },
   production: {
-   backendUrl: "https://api-vince.onrender.com",
+   backendUrl: "https://api-vince.onrender.com/v1",
   }
 }
 

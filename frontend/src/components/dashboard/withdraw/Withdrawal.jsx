@@ -4,12 +4,14 @@ import DashNavbar from "../../DashNavbar";
 
 const Reinvest = () => {
   return (
-    <div className="row feedback-bg-dash vh-100">
+    <div className="row feedback-bg-dash min-h-screen">
       <DashNavbar />
       <Dashboard />
-      <div className="col-md-8 text-strat dash-text">
+      <div className="col-md-8 col-sm-10 text-strat dash-text">
         <h1 className="text-light text-start draw-hd mt-5">Withdraw</h1>
-        <p className="text-light text-start draw-hd ">Withdraw funds from your Vince Investment account.</p>
+        <p className="text-light text-start draw-hd ">
+          Withdraw funds from your Vince Investment account.
+        </p>
         <div className="card rein-crd">
           <div className="card-body text-start ">
             <label className="card-text fw-bold  mt-3 mb-2 ">
@@ -33,9 +35,7 @@ const Reinvest = () => {
               className="form-control "
               placeholder="31swkZUdX6byEujxGNXvowX8Lzf8cTCnyY"
             ></input>
-            <button className="btn dash-btn text-start my-4">
-              Proceed{" "}
-            </button>
+            <button className="btn dash-btn text-start my-4">Proceed </button>
           </div>
         </div>
       </div>
