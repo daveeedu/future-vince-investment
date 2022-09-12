@@ -8,7 +8,7 @@ const Reinvest = () => {
       <DashNavbar />
       <Dashboard />
       <div className="col-md-8 col-sm-10 text-strat dash-text">
-        <h1 className="text-light text-start draw-hd mt-5">Withdraw</h1>
+        <h1 className="text-light text-start draw-hd mt-3">Withdraw</h1>
         <p className="text-light text-start draw-hd ">
           Withdraw funds from your Vince Investment account.
         </p>

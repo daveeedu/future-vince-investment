@@ -28,9 +28,6 @@ function Dashboard() {
             onClick={showSidebar}
           >
             <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiOutlineClose />
-              </Link>
             </li>
             {SidebarData.map((item, index) => {
               return (

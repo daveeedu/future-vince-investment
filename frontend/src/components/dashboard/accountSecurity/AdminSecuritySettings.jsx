@@ -31,6 +31,7 @@ const AdminSecuritySettings = () => {
         onHide={() => setModalShow(false)}
       />
     </div>
+    </div>
   );
 };
 

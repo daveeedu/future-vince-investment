@@ -1,9 +1,9 @@
 const environment = {
   development: {
-   backendUrl: "https://api-vince.onrender.com/v1",
+   backendUrl: "https://03e0-102-67-21-240.ngrok.io/v1",
   },
   production: {
-   backendUrl: "https://api-vince.onrender.com/v1",
+   backendUrl: "https://03e0-102-67-21-240.ngrok.io/v1",
   }
 }
 

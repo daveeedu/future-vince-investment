@@ -49,16 +49,15 @@ const Invest = () => {
   return (
     <div className="row feedback-bg-dash min-h-screen pb-5  overflow-x-hidden">
       <DashNavbar />
-      <DashNavbar />
       <Dashboard />
       <div className=" col-sm-9 col-7 m-auto me-3 mt-1">
-        <h1 className=" fw-bold  text-light text-start">Invest</h1>
+        <h1 className=" fw-bold  text-light text-start mt-4">Invest</h1>
         <p className="mt-2 mb-5 text-light text-start">
           Choose your investment plan
         </p>
         <div className=" row me-sm-0 me-2">
           {investPlans.map((investmentPlan, index) => (
-            <div className="card col-md-3 m-2 " key={investmentPlan.id}>
+            <div className="card col-md-4 col-sm-12  m-2 " key={investmentPlan.id}>
               <div className="card-body text-start">
                 <h4 className="card-title">{investmentPlan.title}</h4>
                 <h3 className="card-text">{investmentPlan.roi}</h3>
