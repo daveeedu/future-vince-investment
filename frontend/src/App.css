@@ -63,8 +63,9 @@
   font-size: calc(8px + 1vmin);
 }
 
-.crd h4 {
+.crd h4, a {
   color: #cca354;
+  text-decoration: none;
 }
 
 ._cryp {
@@ -641,6 +642,7 @@
 .rein-crd-2 {
   width: 100% !important;
   margin-left: 40%;
+  height: 55% !important;
 }
 
 .rein-crd-3 {

@@ -5,6 +5,7 @@ import DashNavbar from "../../DashNavbar";
 import ChangePasswordModal from "../../modal/ChangePasswordModal";
 
 const SecuritySettings = () => {
+
   const [modalShow, setModalShow] = useState(false);
 
   return (

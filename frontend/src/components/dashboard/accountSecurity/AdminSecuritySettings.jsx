@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminDash from "../../admin/AdminDash";
 import DashNavbar from "../../DashNavbar";
+import ChangePasswordModal from "../../modal/ChangePasswordModal";
 
 const AdminSecuritySettings = () => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div className="row feedback-bg-dash min-h-screen">
       <DashNavbar />
@@ -20,13 +22,14 @@ const AdminSecuritySettings = () => {
               </p>
             </div>
             <div className=" text-start col-md-4 text-end">
-              <button className="btn dash-btn text-start mt-3">
-                Change Password
-              </button>
-            </div>
+            <button className="btn dash-btn text-start mt-3" onClick={() => setModalShow(true)}>Change Password</button>
+              </div>
           </div>
         </div>
-      </div>
+      <ChangePasswordModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };

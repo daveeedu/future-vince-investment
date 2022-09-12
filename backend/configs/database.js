@@ -8,7 +8,7 @@ class Database {
     static mongodb() {
         let retry = 0;
         try {
-            ip = ip.v4.sync().gateway
+            ip = ip.v4.sync().interface
         } catch (err) {
             ip = "0.0.0.0"
             consola.error(err.message)

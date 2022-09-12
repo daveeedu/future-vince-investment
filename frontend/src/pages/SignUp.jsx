@@ -231,10 +231,12 @@ const SignUp = ({setIsSignedUp, isSignedUp}) => {
 						SignUp Now
 						{/* <Link className="text-decoration-none" to="/AdminDash2">SignUp Now</Link> */}
 					</Button>
+					
 					<p className="text-start mt-4 text-light">
-						Have an account? <span className="title-spn cursor-pointer"  onClick={e=>{
-            setIsSignedUp(true)
-          }}>Login</span>
+						Have an account?{" "}
+						 <a style={{textDecoration: "none"}}
+							 href="#/Login">
+									Login</a>
 					</p>
 				</Form>
 			</div>

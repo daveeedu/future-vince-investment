@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState }from "react";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import InvestmentPlans from "../components/InvestmentPlans";
@@ -25,21 +25,20 @@ import Storage from "../utils/storage";
 import Navigationbar from "../components/Navigationbar";
 
 const Home = () => {
-  const [isSignedUp, setIsSignedUp] = useState(false);
-
-  if (Storage.get("token")) {
-    new BACKEND()
-      .isAuthenticated()
-      .then((user) => {
-        console.log(user);
-        if (user) {
-          Storage.set("user", user.data);
-          History.push("dashboardtwo");
-          console.log(user);
-        }
-      })
-      .catch(console.error);
-  }
+	const [isSignedUp, setIsSignedUp] = useState(false);
+	let auth = Storage.get("token");
+	if (auth) {
+		new BACKEND()
+			.isAuthenticated()
+			.then((user) => {
+				if (user) {
+					Storage.set("user", user.data);
+					if(auth.type.toLowerCase() === 'user') History.push("dashboardtwo");
+					else History.push("AdminDash2");
+				}
+			})
+			.catch(console.error);
+	}
 
   return (
     <div className="overflow-x-hidden">

@@ -45,8 +45,10 @@ const Invest = () => {
   ];
   console.log(investPlans);
 
+
   return (
     <div className="row feedback-bg-dash min-h-screen pb-5  overflow-x-hidden">
+      <DashNavbar />
       <DashNavbar />
       <Dashboard />
       <div className=" col-sm-9 col-7 m-auto me-3 mt-1">

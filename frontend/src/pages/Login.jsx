@@ -22,10 +22,11 @@ const setState = (setFormData, value) => {
 };
 
 const signin = async (payload) => {
-  const res = await API.login(payload);
-  if (res) {
-    Storage.set("token", res.data);
-    History.push("dashboardtwo");
+	const res = await API.login(payload);
+  if(res){
+    Storage.set("token", res.data)
+				if(res.data.type.toLowerCase() === 'user') History.push("dashboardtwo")
+    else History.push("adminDash2")
   }
 };
 
@@ -41,86 +42,81 @@ const Login = ({ isSignedUp, setIsSignedUp }) => {
     } else throw new Error("Invalid input key name in form!");
   }
 
-  return isSignedUp ? (
-    <div className=" backgrnd-0 ">
-      <div className="">
-        <div className="signup-head signUp-border2">
-          <h3 className="display-5 fw-bold text-start my-5 ms-3 me-5 text-light ">
-            Welcome To <br></br>{" "}
-            <span className="title-spn">Vince Investment</span>
-          </h3>
-        </div>
-        <Form
-          className="signUp-border"
-          onSubmit={async (e) => {
+	return !isSignedUp ? (
+		<div className=" backgrnd-0 ">
+			<div className="">
+				<div className="signup-head signUp-border2">
+					<h3 className="display-5 fw-bold text-start my-5 ms-3 me-5 text-light ">
+						Welcome To <br></br>{" "}
+						<span className="title-spn">Vince Investment</span>
+					</h3>
+				</div>
+				<Form
+					className="signUp-border"
+					onSubmit={async (e) => {
             e.preventDefault();
-            await signin(formData);
-          }}
-        >
-          <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-            <Form.Label className="mt-4 text-light">Email Address</Form.Label>
-            <Form.Control
-              className="p-3 form-con text-light"
-              type="email"
-              name="email"
-              onChange={addData}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-            <Form.Label className="text-light">Password</Form.Label>
-            <Form.Control
-              className="p-3 form-con text-light"
-              type="password"
-              name="password"
-              onChange={addData}
-            />
-          </Form.Group>
-          <Button
-            className="d-flex justify-content-start  btn-custom "
-            type="submit"
-          >
-            Login Now
-            {/* <Link className="text-decoration-none" to="/DashboardTwo">Login Now</Link> */}
-          </Button>
-          <p className="text-end mt-4 text-light">
-            Haven't an account?{" "}
-            <span
-              className="title-spn cursor-pointer"
-              onClick={(e) => {
-                setIsSignedUp(false);
-              }}
-            >
-              Sign Up
-            </span>
-          </p>
-        </Form>
-      </div>
-      <div className="row bg m-auto rights bgBlack text-white mt-5">
-        <div className="col-6 mt-4 mb-2">
-          <p className="">
-            <FaCopyright /> 2022 <span>Vince Investment.</span> All rights
-            reserved
-          </p>
-        </div>
-        <div className="col-4 mt-4 mb-2">
-          <a href="https://facebook.com">
-            <SiFacebook className="me-2 text-white" />
-          </a>
-          <a href="https://instagram.com">
-            <FaInstagramSquare className="me-2 text-white" />
-          </a>
-          <a href="https://twitter.com">
-            <SiTwitter className="me-2 text-white" />
-          </a>
-          <a href="https://linkedin.com">
-            <FaLinkedinIn className="text-white" />
-          </a>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <SignUp isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
-  );
+						await signin(formData);
+					}}>
+					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
+						<Form.Label className="mt-4 text-light">Email Address</Form.Label>
+						<Form.Control
+							className="p-3 form-con text-light"
+							type="email"
+							name="email"
+							onChange={addData}
+						/>
+					</Form.Group>
+					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
+						<Form.Label className="text-light">Password</Form.Label>
+						<Form.Control
+							className="p-3 form-con text-light"
+							type="password"
+							name="password"
+							onChange={addData}
+						/>
+					</Form.Group>
+					<Button
+						className="d-flex justify-content-start  btn-custom "
+						type="submit">
+						Login Now
+						{/* <Link className="text-decoration-none" to="/DashboardTwo">Login Now</Link> */}
+					</Button>
+					<p className="text-end mt-4 text-light">
+						Haven't an account?{" "}
+						<a style={{textDecoration: "none"}}
+							className="title-spn cursor-pointer"
+							href="#/SignUp">
+							Sign Up
+						</a>
+					</p>
+				</Form>
+			</div>
+			<div className="row bg m-auto rights bgBlack text-white mt-5">
+				<div className="col-6 mt-4 mb-2">
+					<p className="">
+						<FaCopyright /> 2022 <span>Vince Investment.</span> All rights
+						reserved
+					</p>
+				</div>
+				<div className="col-4 mt-4 mb-2">
+					<a href="https://facebook.com">
+						<SiFacebook className="me-2 text-white" />
+					</a>
+					<a href="https://instagram.com">
+						<FaInstagramSquare className="me-2 text-white" />
+					</a>
+					<a href="https://twitter.com">
+						<SiTwitter className="me-2 text-white" />
+					</a>
+					<a href="https://linkedin.com">
+						<FaLinkedinIn className="text-white" />
+					</a>
+				</div>
+			</div>
+		</div>
+	) : (
+		<SignUp isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
+	);
 };
 
 Login.propTypes = {

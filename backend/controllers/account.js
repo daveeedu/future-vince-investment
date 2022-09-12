@@ -8,7 +8,7 @@ const path = require("path"),
 exports.createUser = async (req, res, next) => {
   
   try {
-    console.log(res.locals)
+    // console.log(res.locals)
     const account = await accountHandler.createUser(res.locals.validatedBody);
     res.status(account.code).json(account);
   } catch (err) {
