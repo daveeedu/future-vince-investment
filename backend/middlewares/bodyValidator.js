@@ -135,19 +135,6 @@ class BodyValidator {
     });
   }
 
-   static async createProject(req, res, next) {
-    if (req.body.tags instanceof Array === false && req.body.tags) {
-      req.body.tags = req.body.tags.split(',');
-    }
-      let schema;
-      if(req.query.isDraft == "true") schema = updateProjectSchema
-      else schema = projectSchema;
-      await new BodyValidator().u(schema, {
-         req,
-         res,
-         next
-      });
-    }
 
     static async  transaction (req, res, next) {
       if (req.body.tags instanceof Array === false && req.body.tags) {
@@ -168,32 +155,7 @@ class BodyValidator {
     });
   }
 
-  static async uploadProject(req, res, next) {
-    await new BodyValidator().u(projectImageSchema, {
-      req,
-      res,
-      next,
-    });
-  }
 
-  static async uploadResume(req, res, next) {
-    await new BodyValidator().u(cvSchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
-  static async createVideo(req, res, next) {
-    if (req.body.tags instanceof Array === false && req.body.tags) {
-      req.body.tags = req.body.tags.split(',');
-    }
-    await new BodyValidator().u(createVideoSchema, {
-      req,
-      res,
-      next,
-    });
-  }
 
   static async validateUpdateWiki(req, res, next) {
     await new BodyValidator().u(updateWikiSchema, {
@@ -211,30 +173,12 @@ class BodyValidator {
       })
    }
 
-   static async c(req, res, next) {
-      let schema;
-      if(req.query.isDraft == "true") schema = updateWikiSchema
-      else schema = createWikiSchema;
-      await new BodyValidator().u(schema, {
-         req,
-         res,
-         next
-      });
-   }
 
   static async validateUpdateVideo(req, res, next) {
     if (req.body.tags instanceof Array === false && req.body.tags) {
       req.body.tags = req.body.tags.split(',');
     }
     await new BodyValidator().u(updateVideoSchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
-  static async updateAppStatus(req, res, next) {
-    await new BodyValidator().u(updateAppStatusSchema, {
       req,
       res,
       next,
@@ -248,15 +192,6 @@ class BodyValidator {
       next,
     });
   }
-
-   static async updatePortfolioProjectStatus(req, res, next) {
-
-      await new BodyValidator().u(portfolioProjectStatusSchema, {
-         req,
-         res,
-         next
-      });
-   }
 
    static async forgotPassword(req, res, next) {
       await new BodyValidator().u(forgotPasswordSchema, {
@@ -282,38 +217,6 @@ class BodyValidator {
     });
   }
 
-  static async updateSupportGroup(req, res, next) {
-    await new BodyValidator().u(supportGroupSchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
-  static async createSupportGroup(req, res, next) {
-    await new BodyValidator().u(supportGroupSchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
-  static async createGroupChatMessage(req, res, next) {
-    await new BodyValidator().u(supportGroupChatSchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
-  static async testimony(req, res, next) {
-    await new BodyValidator().u(testimonySchema, {
-      req,
-      res,
-      next,
-    });
-  }
-
   static async upgradeUser (req, res, next) {
     await new BodyValidator().u(upgradeUserSchema, {
       req,
@@ -322,13 +225,7 @@ class BodyValidator {
     });
   }
  
-  static async joinWaitlist (req, res, next) {
-    await new BodyValidator().u(joinWaitlist, {
-      req,
-      res,
-      next,
-    });
-  }
+
 }
 
 module.exports = BodyValidator;

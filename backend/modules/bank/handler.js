@@ -5,18 +5,21 @@ const {
 const BankService = require('../../services/bank.service');
 const NotificationService = require('../../services/notification.service');
 
-exports.update = async (body, id, nid) => {
+exports.update = async (body, id, nid, status) => {
+  let isWithdrawal = false;
   if(nid) {
-    await NotificationService.changeNotificationStatus(id, nid);
+    isWithdrawal = await (await NotificationService.changeNotificationStatus(id, nid, status, isWithdrawal))._doc.isWithdrawal;
   }
-  const res = await BankService.topUp(id,body);
+
+  const res = await BankService.topUp(id,body, status, isWithdrawal);
   return res
 }
 
-exports.createTransaction = async (body, id) => {
-  body.user = id;
+exports.createTransaction = async (body, pid) => {
+  body.user = pid;
   const bank = await BankService.createTransaction(body);
 
+  
   const {
     data
   } = bank;
@@ -24,7 +27,18 @@ exports.createTransaction = async (body, id) => {
     title: `$${data.amount} invested successfully`,
     transactionId: data._id,
   }
-  const notification = await NotificationService.updateActivity(activity, id);
+  const notification = await NotificationService.updateActivity(activity, pid);
+  bank.data._doc.activity = notification?.activities;
+  return bank;
+}
+
+exports.withdraw = async (body, pid) => {
+  const bank = await BankService.createTransaction({amount: body.amount, user: pid});
+  const activity = {
+    title: `$${body.amount} withdrew successfully`,
+    transactionId: bank.data._id,
+  }
+  const notification = await NotificationService.updateActivity(activity, pid);
   bank.data._doc.activity = notification?.activities;
   return bank;
 }

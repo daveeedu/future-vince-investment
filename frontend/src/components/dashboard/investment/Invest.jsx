@@ -43,7 +43,6 @@ const Invest = () => {
       days: "ROI after 6 Days",
     },
   ];
-  console.log(investPlans);
 
 
   return (

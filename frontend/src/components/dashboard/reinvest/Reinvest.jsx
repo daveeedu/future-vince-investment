@@ -2,45 +2,15 @@ import React, { useState, useEffect } from "react";
 import Dashboard from "../../../pages/Dashboard";
 import DashNavbar from "../../DashNavbar";
 import BACKEND from '../../../utils/backend';
+import Storage from "../../../utils/storage";
 
 const Reinvest = () => {
-  const investPlans = [
-    {
-      id: 1,
-      title: "Bronze Plan",
-      roi: "18% ",
-      min: "$100",
-      max: "$999",
-      days: "ROI after 6 Days",
-    },
-    {
-      id: 2,
-      title: "Silver Plan",
-      roi: "21% ",
-      min: "$1000",
-      max: "$4999",
-      days: "ROI after 6 Days",
-    },
-    {
-      id: 3,
-      title: "Diamond Plan",
-      roi: "30% ",
-      min: "$5000",
-      max: "$9999",
-      days: "ROI after 6 Days",
-    },
-    {
-      id: 4,
-      title: "Golden Plan",
-      roi: "42% ",
-      min: "$10000",
-      max: "$10000000",
-      days: "ROI after 6 Days",
-    },
-  ];
-  const perc = investPlans.roi?.substring(0, investPlans.roi?.length - 2);
-  console.log(perc);
+  const {bank: {plan}} = Storage.get("user");
+
+  const perc = plan?.percentage
+  console.log(perc+"%", "ROI", plan.name);
   const model = {
+    plan: plan.name,
     profit: 0,
     method: 'bitcoin cash',
     amount: 0,
@@ -60,7 +30,7 @@ const Reinvest = () => {
     const name = targ.name;
     setModelState({...modelState, [name]: targ.value});
     if(name === 'amount'){
-      const profit = (investPlans.roi / 100 * parseInt(targ.value)).toFixed(2);
+      const profit = (perc / 100 * parseInt(targ.value)).toFixed(2);
       setModelState({...modelState, profit, [name]: Number(targ.value)});
       setState({...state, profit, total: Number(profit) + Number(modelState.amount)});
       
@@ -71,7 +41,6 @@ const Reinvest = () => {
     e.preventDefault();
     try{
     const res = await new BACKEND().invest(modelState);
-    console.log(res);
     if(res){
       // onHide();
     }

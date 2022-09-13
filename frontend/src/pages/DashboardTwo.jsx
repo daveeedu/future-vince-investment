@@ -13,9 +13,9 @@ const DashboardTwo = () => {
 			.isAuthenticated()
 			.then((user) => {
 				if (user) {
-					console.log(user?.data);
 					setUser(user?.data);
 					const {activities, ...rest} = user?.data
+					console.log(rest)
 					Storage.set("user", rest);
 				}
 			})

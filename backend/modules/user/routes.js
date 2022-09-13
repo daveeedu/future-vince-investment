@@ -67,30 +67,6 @@ api.put(
   controller.uploadAvatar
 );
 
-api.put(
-  '/uploadcv',
-  validateAuthorization,
-  validateUserAvailability,
-  BodyValidator.uploadResume,
-  controller.uploadResume
-);
-
-api.put(
-  '/uploadcover',
-  validateAuthorization,
-  validateUserAvailability,
-  BodyValidator.uploadCover,
-  controller.uploadCover
-);
-
-api.put(
-  '/:id',
-  validateAuthorization,
-  validateUserAvailability,
-  BodyValidator.updateAppStatus,
-  controller.updateApplicationStatus
-);
-
 api.post(
   '/enable-disable/:id',
   validateAuthorization,
@@ -99,19 +75,5 @@ api.post(
   controller.toggleUserApproval
 );
 
-api.patch(
-  '/upgrade/:userId',
-  validateAuthorization,
-  validateUserAvailability,
-  validateAdmin,
-  BodyValidator.upgradeUser,
-  controller.upgradeUser
-);
 
-api.patch(
-  '/update-online-status',
-  validateAuthorization,
-  validateUserAvailability,
-  controller.updateUserChatStatus
-);
 module.exports = api;
