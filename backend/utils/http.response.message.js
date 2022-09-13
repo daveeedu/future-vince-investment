@@ -50,20 +50,25 @@ exports.ONLY_FELLOWS_ACCESS = "Access Denied! Only fellows can access this porta
 
 exports.WELCOME_MESSAGE = "You are welcome to Techchak"
 
-exports.PROJECT_CREATED = "Project created successfully";
-exports.PROJECT_CREATED_FAILED = "Project creation failed";
-exports.PROJECT_UPDATED = "Project updated successfully";
-exports.PROJECT_UPDATED_FAILED = "Project update failed";
-exports.PROJECT_DELETED = "Project deleted successfully";
-exports.PROJECT_RETRIEVED = "Project retrieved successfully";
-exports.PROJECT_NOT_FOUND = "Project not found";
-exports.ONLY_OWNER_CAN_DELETE_PROJECT = "Only the project owner can delete this project";
+exports.BANK_CREATED = "Bank created successfully";
+exports.BANK_CREATED_FAILED = "Bank creation failed";
+exports.BANK_UPDATED = "Data updated successfully";
+exports.BANK_UPDATED_FAILED = "Bank update failed";
+exports.BANK_DELETED = "Bank deleted successfully";
+exports.BANK_RETRIEVED = "Bank retrieved successfully";
+exports.BANK_NOT_FOUND = "Bank not found";
+
+exports.Transaction_CREATED = "Investment successfully made";
+exports.Transaction_UPDATED = "Transaction successfully updated";
+exports.WITHDRAWAL_CREATED = "Withdrawal request successful"
+
+exports.ONLY_OWNER_CAN_DELETE_BANK = "Only the project owner can delete this project";
 exports.CANT_CREATE_CAPSTONE = "Only admins can create Capstone projects";
 
-exports.NOT_ENABLED = "Account disabled! You can't log into your account until it's enabled."; 
-exports.ACCOUNT_ENABLED = "Account enabled successfully";
+exports.NOT_ENABLED = "Account suspended! You can't log into your account until it's revoked."; 
+exports.ACCOUNT_ENABLED = "Account suspension revoked successfully";
 exports.ACCOUNT_ENABLED_FAILED = "Failed to enable account";
-exports.ACCOUNT_DISABLED = "Account disabled successfully";
+exports.ACCOUNT_DISABLED = "Account suspended successfully";
 exports.ACCOUNT_DISABLED_FAILED = "Failed to disable account";
 exports.FAILED_TO_UPDATE_ACCOUNT = "Failed to update account";
 
@@ -120,25 +125,25 @@ exports.CANT_ACCEPT_AND_REJECT_AUTOMATION_AT_THE_SAME_TIME = "Error! You can't a
 
 exports.PORTFOLIO_NOT_FOUND = "User portfolio not found";
 exports.PORTFOLIO_RETRIEVED = "User portfolio retrieved successfully";
-exports.PROJECT_STATUS_UPDATED = "Project status updated successfully";
-exports.PROJECT_STATUS_UPDATED_FAILED = "Failed to update project status, please try again.";
-exports.PROJECT_SOLUTION_CREATED = "Project solution created successfully";
-exports.PROJECT_SOLUTION_CREATED_FAILED = "Failed to create project solution, please try again.";
+exports.BANK_STATUS_UPDATED = "Bank status updated successfully";
+exports.BANK_STATUS_UPDATED_FAILED = "Failed to update project status, please try again.";
+exports.BANK_SOLUTION_CREATED = "Bank solution created successfully";
+exports.BANK_SOLUTION_CREATED_FAILED = "Failed to create project solution, please try again.";
 exports.SOLUTION_ALREADY_EXIST = "You have already provided solution to this project."
 
-exports.TO_DO_PROJECT_CREATED = "Project successfully added to your To-Do list";
-exports.TO_DO_PROJECT_CREATED_FAILED = "Failed to add project to your To-Do list, please try again.";
-exports.DUPLICATE_PROJECT_ADDED = "This project is already in your To-Do list";
+exports.TO_DO_BANK_CREATED = "Bank successfully added to your To-Do list";
+exports.TO_DO_BANK_CREATED_FAILED = "Failed to add project to your To-Do list, please try again.";
+exports.DUPLICATE_BANK_ADDED = "This project is already in your To-Do list";
 exports.SOMETHING_WENT_WRONG = "Something went wrong, please try again.";
 
-exports.TO_DO_PROJECT_REMOVED = "Project successfully removed from your To-Do list";
-exports.TO_DO_PROJECT_REMOVED_FAILED = "Failed to remove project from your To-Do list, please try again.";
+exports.TO_DO_BANK_REMOVED = "Bank successfully removed from your To-Do list";
+exports.TO_DO_BANK_REMOVED_FAILED = "Failed to remove project from your To-Do list, please try again.";
 
-exports.CANT_REMOVE_ROADMAP_PROJECT_FROM_TODO = "You can't remove Roadmap project from your To-Do list";
+exports.CANT_REMOVE_ROADMAP_BANK_FROM_TODO = "You can't remove Roadmap project from your To-Do list";
 
-exports.PROJECT_SOLUTION_UPDATED = "Project solution updated successfully";
+exports.BANK_SOLUTION_UPDATED = "Bank solution updated successfully";
 
-exports.CANT_ADD_YOUR_OWN_PROJECT_TO_YOUR_TO_DO_LIST = "You can't add your own project to your To-Do list";
+exports.CANT_ADD_YOUR_OWN_BANK_TO_YOUR_TO_DO_LIST = "You can't add your own project to your To-Do list";
 
 exports.LIKED = "Post liked successfully";
 exports.LIKED_FAILED = "Failed to like post, please try again.";

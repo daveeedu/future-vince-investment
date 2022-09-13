@@ -21,7 +21,8 @@ const {
    ADMIN,
    SUPERADMIN,
    BUILDER,
-   FELLOW
+   FELLOW,
+   SUSPENDED
 } = require('../utils/role');
 const logger = require("../logger");
 
@@ -63,7 +64,7 @@ exports.validateUserAvailability = async (req, res, next) => {
 
       if (user) {
 
-         if (user.isEnabled === false) res.status(HTTP_FORBIDDEN).json(ApiResponse.gen(HTTP_FORBIDDEN, NOT_ENABLED));
+         if (user.status === SUSPENDED) res.status(HTTP_FORBIDDEN).json(ApiResponse.gen(HTTP_FORBIDDEN, NOT_ENABLED));
          else next();
       } else {
          const data = ApiResponse.gen(HTTP_NOT_FOUND, ACCOUNT_NOT_FOUND);

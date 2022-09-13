@@ -55,10 +55,11 @@ exports.userSignupSchema = joi.object({
 });
 
 exports.adminSignupSchema = joi.object({
+  name: name.required(),
+  userName: name.required(),
   number: number.required(),
   email: email.required(),
   password,
-  name: name.required(),
   confirmPassword,
   type: joi.string().valid(ADMIN, SUPERADMIN),
 });
@@ -102,3 +103,17 @@ exports.joinWaitlist = joi.object({
   number: number.required(),
   country: country.required(),
 });
+
+exports.transactionSchema = joi.object({
+  amount: joi.number().required(),
+  profit: joi.string().required(),
+  plan: name.required(),
+  method: name.required()
+});
+
+exports.validateTopUp = joi.object({
+  amount: joi.number().required(),
+  profit: joi.string().required(),
+  method: name,
+  plan: name,
+})

@@ -105,7 +105,7 @@ const corsOption = {
     if (
       /undefined/.test(origin) ||
       /localhost:\d{1,4}$/.test(origin) ||
-      /\.techchak\.com$/.test(origin)
+      /\.github\.io$/.test(origin)
     ) {
       callback(null, true);
     } else {
@@ -117,14 +117,15 @@ const corsOption = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOption));
+// app.use(cors(corsOption));
+app.use(cors())
 
 const apiVersion = config.version;
 
 app.get(`/${apiVersion}`, (req, res, next) => {
   logger.info({method: req.method, path: req.originalUrl});
-   data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
-    name: "techchak-service",
+   const data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
+    name: "Vince-Service",
     version: "1.0.0",
   });
 

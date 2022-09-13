@@ -23,6 +23,12 @@ const userProfileSchema = new Schema(
       minlength: 3,
       maxlength: 100,
     },
+    name: {
+      type: String,
+      trim: true,
+      minlength: 3,
+      maxlength: 100,
+    },
     userName: {
       type: String,
       trim: true,
