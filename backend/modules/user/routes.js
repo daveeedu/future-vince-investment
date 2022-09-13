@@ -67,4 +67,13 @@ api.put(
   controller.uploadAvatar
 );
 
+api.post(
+  '/enable-disable/:id',
+  validateAuthorization,
+  validateAdmin,
+  validateUserAvailability,
+  controller.toggleUserApproval
+);
+
+
 module.exports = api;

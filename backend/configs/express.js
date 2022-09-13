@@ -117,7 +117,8 @@ const corsOption = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOption));
+// app.use(cors(corsOption));
+app.use(cors())
 
 const apiVersion = config.version;
 

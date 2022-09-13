@@ -13,9 +13,10 @@ const DashboardTwo = () => {
 			.isAuthenticated()
 			.then((user) => {
 				if (user) {
-					console.log(user?.data);
 					setUser(user?.data);
-					Storage.set("user", user?.data);
+					const {activities, ...rest} = user?.data
+					console.log(rest)
+					Storage.set("user", rest);
 				}
 			})
 			.catch(console.error);
@@ -24,15 +25,16 @@ const DashboardTwo = () => {
 	return (
 		<div className="feedback-bg-dash-2  ">
 			<DashNavbar />
-			<div className="row dash-text">
+			<div className=" dash-text ">
 				<Dashboard />
-				<div className="col-md-8 row">
-					<h3 className="text-start text-light draw-hd-1">
+				<div className="col-md-8 hv-100">
+					<h3 className="text-start text-light draw-hd-1 pt-5">
 						Good day, {user?.userName || "User"}
 					</h3>
 					<p className="text-start text-light draw-hd-2">
 						Welcome to Vince Investment
 					</p>
+					<div className="row">
 					<div className="col-md-6 rein-crd-3">
 						<div className="card mb-3">
 							<div className="card-body ">
@@ -80,7 +82,7 @@ const DashboardTwo = () => {
 									return (
 										<>
 											<hr></hr>
-											<div className="text-start font-sze">
+											<div className="text-start font-sze ">
 												<span className="card-title text-start pt-3 fs-6">
 													{activity.title}
 												</span>
@@ -98,6 +100,7 @@ const DashboardTwo = () => {
 								
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>

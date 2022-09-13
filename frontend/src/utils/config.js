@@ -5,6 +5,7 @@ const environment = {
   },
   production: {
    backendUrl: "https://api-vince.onrender.com/v1",
+
   }
 }
 

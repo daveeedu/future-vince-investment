@@ -67,6 +67,17 @@ exports.getAllUsers = async (req, res, next) => {
 };
 
 
+exports.toggleUserApproval = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await userHandler.toggleUserApproval(id);
+    res.status(result.code).json(result);
+  } catch (err) {
+    logger.error(err);
+    res.status(err.code).json(err);
+  }
+};
+
 exports.uploadAvatar = async (req, res, next) => {
   try {
     const data = await userHandler.uploadImage(res.locals.user, req.body);
@@ -86,4 +97,3 @@ exports.getActiveUsers = async (req, res, next) => {
     res.status(err.code).json(err);
   }
 };
-

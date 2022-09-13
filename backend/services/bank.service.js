@@ -14,7 +14,8 @@ const {
  BANK_NOT_FOUND,
  INTERNAL_SERVER_ERROR,
  BANK_CREATED_FAILED,
- BANK_UPDATED
+ BANK_UPDATED,
+ WITHDRAWAL_CREATED
 } = require("../utils/http.response.message"), {
  gen
 } = require("../utils/http.response");
@@ -36,12 +37,13 @@ class BankService extends Bank {
   }
  }
 
- static async topUp (id, data) {
+ static async topUp (id, data, status, isWithdrawal) {
+  
   const bank = await this.findOne({user:id})
-  if(data.amount) {
-   bank._doc.balance += data.amount
-   bank._doc.invested += data.amount
-  }
+  if(data.amount && !isWithdrawal) {
+   bank._doc.balance += Number(data.amount)
+   bank._doc.invested += Number(data.amount)
+  }else bank._doc.balance -= Number(data.amount)
 
   if(data.profit) {
    bank._doc.profits = (parseFloat(data.profit)+parseFloat(bank.profits)).toFixed(2)
@@ -50,7 +52,10 @@ class BankService extends Bank {
   delete bank._id
   delete bank.user;
 
-  const result = await this.findOneAndUpdate({user: id}, {$set: bank});
+  let result;
+  if(status == 1) result = await this.findOneAndUpdate({user: id}, {$set: bank}) 
+  else result = {};
+  console.log(result)
   return gen(HTTP_CREATED, BANK_UPDATED, result)
  }
 
@@ -76,6 +81,7 @@ class BankService extends Bank {
   try{
    let percentage;
    const {user, plan} = data;
+   console.log(data);
    switch(plan?.toLowerCase()){
     case "bronze plan": percentage = 18;
     break;
@@ -89,10 +95,10 @@ class BankService extends Bank {
    }
 
   const done = await Transaction.create(data);
-  await this.findOneAndUpdate({user}, {plan: {name: plan, percentage}})
+  if(plan) await this.findOneAndUpdate({user}, {plan: {name: plan, percentage}})
   
   if(done) {
-   return gen(HTTP_CREATED, Transaction_CREATED, done)
+   return gen(HTTP_CREATED, plan ? Transaction_CREATED : WITHDRAWAL_CREATED, done)
   }else{
    throw gen(HTTP_INTERNAL_SERVER_ERROR, SOMETHING_WENT_WRONG)
   }

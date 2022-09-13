@@ -14,5 +14,8 @@ api.put('/topup/:pid', validateAuthorization, validateUserAvailability, validate
 
 api.post('/transaction', validateAuthorization, validateUserAvailability, BodyValidator.transaction, controller.createTransaction);
 
+api.post('/transaction/withdraw', validateAuthorization, validateUserAvailability, controller.withdraw);
+
+
 
 module.exports = api

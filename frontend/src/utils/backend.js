@@ -55,7 +55,7 @@ class BACKEND {
 
   }
 
-  topUpBank(payload, pid, nid) {
+  topUpBank(payload, {pid, status}, nid) {
     Alert({
       type: "info",
       message: "Processing request...",
@@ -63,7 +63,7 @@ class BACKEND {
     })
 
     return this.send({
-      to: `/bank/topup/${pid}/?activityId=${nid}`,
+      to: `/bank/topup/${pid}/?activityId=${nid}&status=${status}`,
       type: "put",
       payload
     })
@@ -150,6 +150,20 @@ class BACKEND {
     
     return this.send({
       to: '/bank/transaction',
+      type: "post",
+      payload
+    })
+  }
+
+  withdraw (payload) {
+    Alert({
+      type: "info",
+      message: "Processing request...",
+      timer: 5000
+    })
+    
+    return this.send({
+      to: '/bank/transaction/withdraw',
       type: "post",
       payload
     })
