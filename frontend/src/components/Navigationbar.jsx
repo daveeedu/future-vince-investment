@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import propTypes from "prop-types";
+import logo from "../images/vince-logo.png"
 import Scroller from "../components/Scroller";
 
 const Navigationbar = ({ isSignedUp, setIsSignedUp }) => {
@@ -19,7 +20,7 @@ const Navigationbar = ({ isSignedUp, setIsSignedUp }) => {
         <Container className="col ">
           <Navbar.Brand href="#home">
             <Link className="text-white text-decoration-none" to="./">
-              FutureViceInvestment
+             <img className="logo" src={logo}></img>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

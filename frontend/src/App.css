@@ -2,15 +2,39 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 55px;
+  width: 180px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.nav-pills .nav-link:hover{
+  border-radius: 0;
+  color: #cca354;
+  background-color: #f4f0f0;
+  border-bottom: 2px solid #cca354;
+}
+
+.nav-pills .nav-link{
+  color: #cca354;
+  background-color: #f4f0f0;
+  border-bottom: 2px solid #cca354;
+}
+
+.nav-pills .nav-link.active{
+  color: #f4f0f0;
+  background-color: #cca354 !important;
+  border-bottom: 2px solid #f4f0f0;
+}
+
+.nav-pills .nav-item:not(:nth-last-of-type(1)) .nav-link{
+  /* border-right: 2px solid #ffff; */
+  margin-right: 3px;
 }
 
 .App-header {
@@ -319,7 +343,10 @@
 .faq-1 {
   width: 60% !important;
   margin: 0 auto !important;
+  background-color: #343a40 !important;
+  color: #fff !important;
 }
+
 
 .faq-bg {
   background-image: url("../public/images/faqbg-img.jpg") !important;

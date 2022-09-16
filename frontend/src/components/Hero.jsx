@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Hero = () => {
+const Hero = ({ isSignedUp, setIsSignedUp }) => {
   return (
     <div className="row ms-auto hero-bg pt-lg-5 pt-5rem">
       <div className="col-lg-6 text-start pt-5 ">
@@ -16,8 +17,20 @@ const Hero = () => {
           security of your investment.
         </p>
         <div className="pb-4">
-          <button className="btn btn-custom mx-3 mt-4">SIGN UP</button>
-          <button className="btn btn-custom mt-4">LOG IN</button>
+          <Link
+                  className="btn btn-custom mx-3 mt-4 text-decoration-none"
+                  to="/SignUp"
+                  onClick={(e) => setIsSignedUp(false)}
+                >
+                  SignUp
+          </Link>
+          <Link
+                  className="btn btn-custom mt-4 text-decoration-none"
+                  to="/Login"
+                  onClick={(e) => setIsSignedUp(true)}
+                >
+                  LogIn
+          </Link>
         </div>
       </div>
       <div className="col-lg-6"> </div>

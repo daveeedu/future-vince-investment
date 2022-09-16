@@ -13,75 +13,45 @@ const Faq = () => {
         platform. If you <br></br> have a query that is not answered here,
         Please contact us.
       </p>
-      <Accordion className=" mt-5 pb-5">
+      <Accordion className=" mt-5 pb-5" >
         <Accordion.Item className="my-3 faq-1" eventKey="0">
-          <Accordion.Header className="">
-            <AiOutlineQuestionCircle className="me-2" /> Accordion Item #1
+          <Accordion.Header className="custom-Accord ">
+            <AiOutlineQuestionCircle className="me-2 " />When can I deposit/withdraw from my Investment account?
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          Deposit and withdrawal are available to users at any time. Be sure, that your funds are not used in any ongoing trade before the withdrawal. The available amount is shown in your dashboard on the main page of as Available Balance.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item className="my-3 border-top faq-1" eventKey="1">
           <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> Accordion Item #2
+            <AiOutlineQuestionCircle className="me-2" /> How do I check my account balance?
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          You can see this anytime on your accounts dashboard. Login with your username and password to view your Available Balance
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item className="my-3 border-top faq-1" eventKey="2">
           <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> Accordion Item #3
+            <AiOutlineQuestionCircle className="me-2" /> I forgot my password, what shoiuld I do?
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          Visit the password reset page, type in your email address and click the `Reset` button. You will get an email guiding you on how to reset your lost password.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item className="my-3 border-top faq-1" eventKey="3">
           <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> Accordion Item #3
+            <AiOutlineQuestionCircle className="me-2" /> How will I know that the withdrawal has been successful?
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          You will get an automatic notification via your registered email once we send the funds and you can always check your transactions or account balance. Your chosen payment system dictates how long it will take for the funds to reach you.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item className="my-3 border-top faq-1" eventKey="4">
           <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> Accordion Item #3
+            <AiOutlineQuestionCircle className="me-2" /> How much can I withdraw?
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          You can withdraw the full amount of your account balance minus the funds that are used currently for supporting opened positions.
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
