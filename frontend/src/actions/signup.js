@@ -1,12 +1,8 @@
-
 import BACKEND from "../utils/backend";
 import Alert from "../utils/alert";
 
 class signupAction {
-
- 
  addData (e){
-
   const target = e.target;
   console.log(target)
  }

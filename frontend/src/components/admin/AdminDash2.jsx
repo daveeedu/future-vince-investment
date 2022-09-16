@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminDash from "./AdminDash";
 import BACKEND from "../../utils/backend";
 import Storage from "../../utils/storage";
@@ -27,6 +27,7 @@ class AdminDash2 extends React.Component {
 		await this.requestUser();
 		await this.getActivities();
 	}
+	
 	requestUsers() {
 		new BACKEND()
 			.getAllUsers()
@@ -40,17 +41,17 @@ class AdminDash2 extends React.Component {
 			})
 			.catch(console.error);
 	}
-
-	async topUpBank(payload){
+    
+	async topUpBank({activity, status}){
 		try{
-			console.log(payload);
+			const payload = activity;
 			const body = {
 				amount:	payload.transactionId.amount,
 				profit:	payload.transactionId.profit,
 				plan: payload.transactionId.plan
 			}
-			const user = await new BACKEND().topUpBank(body, payload.transactionId.user, payload._id);
-			// this.setState({...this.state, user: user.data})
+			const user = await new BACKEND().topUpBank(body, {status, pid: payload.transactionId.user}, payload._id);
+			this.setState({...this.state, user: user.data})
 			if(user){
 				console.log(user);
 			}else{
@@ -75,6 +76,7 @@ class AdminDash2 extends React.Component {
 				console.error("Using storages data", e);
 			});
 	}
+	
 
 	async getActivities() {
 		try{
@@ -84,12 +86,12 @@ class AdminDash2 extends React.Component {
 				return activity.activities.map(act => activities.push({...act, userName: activity.user.userName}))
 			})
 			this.setState({...this.state, activities: activities})
-			// console.log(this.state.activities);	
+			console.log(this.state.activities);	
 		}catch(e){
-
 		}
+		
 	}
-
+	
 	render() {
 		return (
 			<div className="admin-dash row feedback-bg-dash-3 ">
@@ -131,7 +133,7 @@ class AdminDash2 extends React.Component {
 										All
 									</p>
 								</div>
-								{this.state.activities.length?this.state.activities.map((activity, index) => {
+								{this.state.activities.length?this.state.activities.sort((a,b) => a?.status > b?.status ? 1 : -1).map((activity, index) => {
 									return (
 										<div key={index}>
 											<hr></hr>
@@ -148,8 +150,9 @@ class AdminDash2 extends React.Component {
 
 												{activity.status === 0 && 
 													<div className="flex">
-														<FcCheckmark size={'25'} className='text-bold' style={{cursor: 'pointer'}} onClick={async _=> await new AdminDash2().topUpBank(activity)}/>
-													<FaTimes size={'20'} style={{marginLeft: '10px', color: '#FF2414', cursor: 'pointer'}}/>
+														<FcCheckmark size={'25'} className='text-bold' style={{cursor: 'pointer'}} onClick={async _=> await new AdminDash2().topUpBank({activity,status:1})}/>
+													<FaTimes size={'20'} style={{marginLeft: '10px', color: '#FF2414', cursor: 'pointer'}}
+													onClick={async _=> await new AdminDash2().topUpBank({activity,status:2})}/>
 													</div> 
 												}
 											</div>

@@ -60,6 +60,7 @@ exports.BANK_NOT_FOUND = "Bank not found";
 
 exports.Transaction_CREATED = "Investment successfully made";
 exports.Transaction_UPDATED = "Transaction successfully updated";
+exports.WITHDRAWAL_CREATED = "Withdrawal request successful"
 
 exports.ONLY_OWNER_CAN_DELETE_BANK = "Only the project owner can delete this project";
 exports.CANT_CREATE_CAPSTONE = "Only admins can create Capstone projects";

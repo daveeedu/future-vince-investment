@@ -22,7 +22,7 @@ function InvestmentPlanModal(props) {
       setState(state=>{
        return  {...state, total: (modelState.amount+Number(state.profit)).toFixed(2)}
       });
-      console.log(modelState, parseInt(modelState.profit));
+      // console.log(modelState, parseInt(modelState.profit));
     }, [modelState]);
     
     const addData = (e) => {
@@ -42,7 +42,6 @@ function InvestmentPlanModal(props) {
       e.preventDefault();
       try{
       const res = await new BACKEND().invest(modelState);
-      console.log(res);
       if(res){
         onHide();
       }

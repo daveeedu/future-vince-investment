@@ -91,21 +91,6 @@ exports.deleteUserById = async (id) => {
   return account;
 };
 
-exports.updateAccount = async (body) => {
-  let data;
-  if (Object.keys(body).includes('password')) {
-    data = await AccountService.updateAccount(body.id, body.data);
-  } else
-    data = await ProfileService.updateProfileById({
-        id: body.id,
-        role: body.role,
-      },
-      body.data
-    );
-
-  return data;
-};
-
 exports.uploadImage = async ({
   id,
   role,
@@ -138,31 +123,6 @@ exports.uploadImage = async ({
   }
 };
 
-exports.uploadCoverImage = async (id, body) => {
-  try {
-    const cImage = await s3Upload({
-      folder: 'cover',
-      file: body.file,
-    });
-    const cover = await ProfileService.updateCoverImage(id, cImage);
-    return ApiResponse.gen(HTTP_OK, 'Cover image uploaded successfully', cover);
-  } catch (err) {
-    if (err.code) throw err;
-    throw ApiResponse.gen(HTTP_INTERNAL_SERVER_ERROR, UPLOAD_DENIED);
-  }
-};
-
-exports.uploadCv = async (id, req) => {
-  try {
-    const pCv = await s3(req.files.file, 'cv');
-    const cv = await ProfileService.updateCv(id, pCv);
-    return ApiResponse.gen(HTTP_OK, 'Resume uploaded successfully', cv);
-  } catch (err) {
-    if (err.code) throw err;
-    throw ApiResponse.gen(HTTP_INTERNAL_SERVER_ERROR, UPLOAD_DENIED);
-  }
-};
-
 exports.getAllUsers = async (body) => {
   if (body.offset) {
     body.skip = parseInt(body.offset);
@@ -175,16 +135,6 @@ exports.getAllUsers = async (body) => {
   return users;
 };
 
-exports.updateApplicationStatus = async (id, status) => {
-  const data = await AccountService.updateApplicationStatus(id, status);
-  return data;
-};
-
-exports.updateUserChatStatus = async (id, onlineStatus) => {
-  const data = await AccountService.updateUserChatStatus(id, onlineStatus);
-  return data;
-};
-
 exports.toggleUserApproval = async (id) => {
   const data = await AccountService.toggleUserApproval(id);
   return data;
@@ -193,9 +143,4 @@ exports.toggleUserApproval = async (id) => {
 exports.getActiveUsers = (query) => {
   const result = AccountService.getActiveUsers(query);
   return result;
-};
-
-exports.upgradeUser = async (id, body) => {
-  const user = await AccountService.upgradeUser(id, body);
-  return user;
 };

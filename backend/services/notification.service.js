@@ -9,20 +9,19 @@ class Notification extends Notif {
   return updated
  }
 
- static async changeNotificationStatus(id, nid) {
+ static async changeNotificationStatus(id, nid, status, isWithdrawal) {
    const notification = await this.findOne({user:id})
    const index = notification.activities.findIndex(x => {
-     console.log(x._id.toString(), nid)
      if(x._id.toString() === nid){
      return x
     }
     })
 
-    notification.activities[index].status = 1;
-
-    // const updatedNotification = await this.findOneAndUpdate({user:id}, {'activities.status': 1}).where('_id').equals(nid)
-    // notification.activities = updated
+    notification.activities[index].status = Number(status);
+    
+    if(notification.activities[index].title.includes("withdrew")) isWithdrawal = true;
     const updatedNotification = await notification.save();
+    updatedNotification._doc.isWithdrawal = isWithdrawal 
     return updatedNotification
  }
 

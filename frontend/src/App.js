@@ -22,6 +22,9 @@ import { useState } from "react";
 
 function App() {
   const [isSignedUp, setIsSignedUp] = useState(false);
+  
+
+
   return (
     <div className="App overflow-x-hidden">
       <HashRouter>
