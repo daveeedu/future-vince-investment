@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/future-vince-investment/static/css/main.031269d4.css",
-    "main.js": "/future-vince-investment/static/js/main.eff91c5e.js",
+    "main.css": "/future-vince-investment/static/css/main.736ff176.css",
+    "main.js": "/future-vince-investment/static/js/main.f00d2c74.js",
     "static/js/787.0c746d46.chunk.js": "/future-vince-investment/static/js/787.0c746d46.chunk.js",
     "static/media/stars.gif": "/future-vince-investment/static/media/stars.6802cc2de5df70b83d6c.gif",
     "static/media/DarkBackground_4.jpg": "/future-vince-investment/static/media/DarkBackground_4.f985faa0743ba1fe6bf1.jpg",
@@ -20,12 +20,12 @@
     "static/media/wallet2.svg": "/future-vince-investment/static/media/wallet2.d86e2db700dee5cd706fe334c174e22c.svg",
     "static/media/person.svg": "/future-vince-investment/static/media/person.d48670ae19991ac141aa3e97fe7fbcf7.svg",
     "static/media/pip-fill.svg": "/future-vince-investment/static/media/pip-fill.fb23ca2bba2a4bc51570af2bf1a4b956.svg",
-    "main.031269d4.css.map": "/future-vince-investment/static/css/main.031269d4.css.map",
-    "main.eff91c5e.js.map": "/future-vince-investment/static/js/main.eff91c5e.js.map",
+    "main.736ff176.css.map": "/future-vince-investment/static/css/main.736ff176.css.map",
+    "main.f00d2c74.js.map": "/future-vince-investment/static/js/main.f00d2c74.js.map",
     "787.0c746d46.chunk.js.map": "/future-vince-investment/static/js/787.0c746d46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.031269d4.css",
-    "static/js/main.eff91c5e.js"
+    "static/css/main.736ff176.css",
+    "static/js/main.f00d2c74.js"
   ]
 }
