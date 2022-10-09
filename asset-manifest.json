@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/future-vince-investment/static/css/main.736ff176.css",
-    "main.js": "/future-vince-investment/static/js/main.a17f1431.js",
+    "main.js": "/future-vince-investment/static/js/main.286e28aa.js",
     "static/js/787.0c746d46.chunk.js": "/future-vince-investment/static/js/787.0c746d46.chunk.js",
     "static/media/stars.gif": "/future-vince-investment/static/media/stars.6802cc2de5df70b83d6c.gif",
     "static/media/DarkBackground_4.jpg": "/future-vince-investment/static/media/DarkBackground_4.f985faa0743ba1fe6bf1.jpg",
@@ -21,11 +21,11 @@
     "static/media/person.svg": "/future-vince-investment/static/media/person.d48670ae19991ac141aa3e97fe7fbcf7.svg",
     "static/media/pip-fill.svg": "/future-vince-investment/static/media/pip-fill.fb23ca2bba2a4bc51570af2bf1a4b956.svg",
     "main.736ff176.css.map": "/future-vince-investment/static/css/main.736ff176.css.map",
-    "main.a17f1431.js.map": "/future-vince-investment/static/js/main.a17f1431.js.map",
+    "main.286e28aa.js.map": "/future-vince-investment/static/js/main.286e28aa.js.map",
     "787.0c746d46.chunk.js.map": "/future-vince-investment/static/js/787.0c746d46.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.736ff176.css",
-    "static/js/main.a17f1431.js"
+    "static/js/main.286e28aa.js"
   ]
 }
