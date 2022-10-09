@@ -23,8 +23,10 @@ import BACKEND from "../utils/backend";
 import History from "../utils/history";
 import Storage from "../utils/storage";
 import Navigationbar from "../components/Navigationbar";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate()
 	const [isSignedUp, setIsSignedUp] = useState(false);
 	let auth = Storage.get("token");
 	if (auth) {
@@ -33,8 +35,8 @@ const Home = () => {
 			.then((user) => {
 				if (user) {
 					Storage.set("user", user.data);
-					if(auth.type.toLowerCase() === 'user') History.push("dashboardtwo");
-					else History.push("AdminDash2");
+					if(auth.type.toLowerCase() === 'user') navigate("/dashboardtwo");
+					else navigate("/AdminDash2");
 				}
 			})
 			.catch(console.error);

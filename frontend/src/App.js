@@ -1,5 +1,5 @@
 import "./App.css";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import AboutPage from "./pages/AboutPage";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App overflow-x-hidden">
-      <HashRouter>
+      <BrowserRouter>
         {/* <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/> */}
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -62,7 +62,7 @@ function App() {
           <Route path="/adminDash2" element={<AdminDash2 />} />
           {/* <Route path="/deleteModal" element={<DeleteModal />}/> */}
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
