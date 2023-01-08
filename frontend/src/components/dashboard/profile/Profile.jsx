@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dashboard from "../../../pages/Dashboard";
 import { TbLock } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
 import EditPhoneModal from "../../modal/EditPhoneModal";
 import DashNavbar from "../../DashNavbar";
+import BACKEND from "../../../utils/backend";
 
 const Profile = () => {
   const [modalShow, setModalShow] = useState(false);
+
+  const [user, setUser] = React.useState({});
+
+	useEffect(() => {
+		new BACKEND()
+			.isAuthenticated()
+			.then((user) => {
+				if (user) {
+					setUser(user?.data);
+					const {activities, ...rest} = user?.data
+					// console.log(rest)
+				}
+			})
+			.catch(console.error);
+	}, []);
 
   return (
     <div className="feedback-bg-dash-2  py-5">
@@ -25,7 +41,7 @@ const Profile = () => {
                 <h6 className=" my-3 basic">BASICS</h6>
                 <div className="d-flex flex-sm-row flex-column justify-content-between ">
                   <h6 className=" my-3">Username</h6>
-                  <p className=" my-3">Tom Golden</p>
+                  <p className=" my-3">{user?.name} {user?.userName}</p>
                   <IoIosArrowForward
                     className=" my-3 edit-profile"
                     onClick={() => setModalShow(true)}
@@ -35,14 +51,14 @@ const Profile = () => {
 
                 <div className="d-flex flex-sm-row flex-column justify-content-between">
                   <h6 className=" my-3">Email</h6>
-                  <p className=" my-3">daveeedu@gmail.com</p>
+                  <p className=" my-3">{user?.email}</p>
                   <TbLock className=" my-3" />
                 </div>
                 <hr className="text-white"></hr>
 
                 <div className="d-flex flex-sm-row flex-column justify-content-between ">
                   <h6 className=" my-3">Phone</h6>
-                  <p className=" my-3">08121351325</p>
+                  <p className=" my-3">{user?.number}</p>
                   <IoIosArrowForward
                     className=" my-3 edit-profile"
                     onClick={() => setModalShow(true)}
@@ -66,8 +82,8 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <EditPhoneModal show={modalShow} onHide={() => setModalShow(false)} />
-      <EditPhoneModal show={modalShow} onHide={() => setModalShow(false)} />
+      <EditPhoneModal user={user} show={modalShow} onHide={() => setModalShow(false)} />
+      {/* <EditPhoneModal show={modalShow} onHide={() => setModalShow(false)} /> */}
     </div>
   );
 };
