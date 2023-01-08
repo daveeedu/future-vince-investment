@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express()
-const port = process.env.PORT||9000
+const port = process.env.PORT || 9000
 
 app.use(express.static(path.join(__dirname, "../build")))
 
@@ -10,7 +10,6 @@ app.get("/ping", (req, res)=> res.send("Pong!"))
 app.get("/*", (req, res) => {
  const file = path.join(__dirname, "../build", "index.html");
 
- console.log("hello", file)
  res.sendFile(file)
 })
 
