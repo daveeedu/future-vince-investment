@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AdminDash from "./AdminDash";
 import BACKEND from "../../utils/backend";
 import Storage from "../../utils/storage";
@@ -27,6 +27,7 @@ class AdminDash2 extends React.Component {
 		await this.requestUser();
 		await this.getActivities();
 	}
+	
 	requestUsers() {
 		new BACKEND()
 			.getAllUsers()
@@ -40,7 +41,7 @@ class AdminDash2 extends React.Component {
 			})
 			.catch(console.error);
 	}
-
+    
 	async topUpBank({activity, status}){
 		try{
 			const payload = activity;
@@ -50,7 +51,7 @@ class AdminDash2 extends React.Component {
 				plan: payload.transactionId.plan
 			}
 			const user = await new BACKEND().topUpBank(body, {status, pid: payload.transactionId.user}, payload._id);
-			// this.setState({...this.state, user: user.data})
+			this.setState({...this.state, user: user.data})
 			if(user){
 				console.log(user);
 			}else{
@@ -75,6 +76,7 @@ class AdminDash2 extends React.Component {
 				console.error("Using storages data", e);
 			});
 	}
+	
 
 	async getActivities() {
 		try{
@@ -86,10 +88,10 @@ class AdminDash2 extends React.Component {
 			this.setState({...this.state, activities: activities})
 			console.log(this.state.activities);	
 		}catch(e){
-
 		}
+		
 	}
-
+	
 	render() {
 		return (
 			<div className="admin-dash row feedback-bg-dash-3 ">

@@ -8,9 +8,9 @@ const Reinvest = () => {
   const {bank: {plan}} = Storage.get("user");
 
   const perc = plan?.percentage
-  console.log(perc+"%", "ROI", plan.name);
+  console.log(perc+"%", "ROI", plan?.name);
   const model = {
-    plan: plan.name,
+    plan: plan?.name,
     profit: 0,
     method: 'bitcoin cash',
     amount: 0,

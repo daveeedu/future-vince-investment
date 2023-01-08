@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const AboutUs = () => {
+const AboutUs = ({ isSignedUp, setIsSignedUp }) => {
   return (
     <div className="pt-5 about-bg px-2">
       <div className="row mt-4 ms-auto">
@@ -25,7 +26,13 @@ const AboutUs = () => {
             increasing your profit margin by profitable investment. We look
             forward to you being part of our community.
           </p>
-          <button className="btn btn-custom  mt-2">SIGN UP</button>
+          <Link
+                  className="btn btn-custom mt-2 text-decoration-none"
+                  to="/SignUp"
+                  onClick={(e) => setIsSignedUp(false)}
+                >
+                  SignUp
+          </Link>
           <div className="my-5 mx-4">
             <iframe
               height="450"

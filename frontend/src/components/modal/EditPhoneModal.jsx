@@ -23,10 +23,6 @@ function EditPhoneModal(props) {
         <input type="password" className="form-control p-2"  />
         </div>
         <div className="col-md-6 my-4">
-        <p className="modal-txt2" id="contained-modal-title-vcenter">Email</p>
-        <input type="password" className="form-control p-2"  />
-        </div>
-        <div className="col-md-6 my-3">
         <p className="modal-txt2" id="contained-modal-title-vcenter">Phone Number</p>
         <input type="password" className="form-control p-2"  />
         </div>
