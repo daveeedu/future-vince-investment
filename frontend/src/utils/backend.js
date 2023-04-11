@@ -7,11 +7,11 @@ class BACKEND {
   }
 
    send({type, to, payload, useAlert = true}) {
-    Alert({
+    if (useAlert) {Alert({
       type: "info",
       message: "Processing request...",
       timer: 5000
-    })
+    }) }
 
     return this._API[type](to, payload).then(function (response) {
 

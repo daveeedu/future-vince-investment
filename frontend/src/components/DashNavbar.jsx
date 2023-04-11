@@ -49,7 +49,7 @@ const DashNavbar = () => {
 				{/* {children} */}
 
 				<UserCentre className="flex justify-center items-center">
-        <Link className="text-[var(--C_black_lite)] text-decoration-none text-gray-100 hover:text-gray-200" to="./" onClick={logout}>LogOut</Link>
+        <Link className="text-[var(--C_black_lite)] text-decoration-none text-gray-100 hover:text-gray-200" to="./" onClick={logout}>Log Out</Link>
         <Avatar className="ms-4" googleId="118096717852922241760" size="45" round={true} />
 				</UserCentre>
 			</HeaderContainer>

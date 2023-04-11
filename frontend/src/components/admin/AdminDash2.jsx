@@ -123,7 +123,7 @@ class AdminDash2 extends React.Component {
 							<div className="card-body bg-gray-100 rounded-lg drop-shadow-md">
 								<p className="card-text fw-bold text-start mt-2">Total Users</p>
 								<h4 className="card-title text-start pt-4">
-									{new Intl.NumberFormat().format(this.state?.users?.pageCount) || 0}
+									{new Intl.NumberFormat().format(this.state?.users?.pageCount || 0 )}
 								</h4>
 							</div>
 						</div>
@@ -133,7 +133,7 @@ class AdminDash2 extends React.Component {
 									Total Investments
 								</p>
 								<h4 className="card-title text-start pt-4">
-									$ {new Intl.NumberFormat().format(this.state?.user?.bank?.invested) || 0} USD
+									$ {new Intl.NumberFormat().format(this.state?.user?.bank?.invested || 0) } USD
 								</h4>
 							</div>
 						</div>
