@@ -8,14 +8,7 @@ import SimpleMap from './SimpleMap';
 const Footer = () => {
   return (
     <div className=" backgrnd-0 ">
-      <br></br>
-      <div className="my-5 text-white">
-        <h1 className="display-4">Find Us <span className="title-spn">At</span></h1>
-      </div>
-      <div className="my-5">
-      <SimpleMap className="simMap "/>
-      </div>
-      <div className="row bg m-auto mt-5 pt-5 ">
+      <div className="row bg m-auto  pt-5 ">
         <div className="col-md-4 display-6 mb-5 img-foot logo">
         <h5 className="text-start text-white text-uppercase ms-5 mb-4 mt-5 flex"><FaGem className='mr-3 mt-1'/> <span>Certificate</span></h5>
           <img className="img-footTwo" src="./images/cert-invest.jpg" alt="#" />
