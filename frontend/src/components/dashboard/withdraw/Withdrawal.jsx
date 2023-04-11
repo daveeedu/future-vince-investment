@@ -35,7 +35,7 @@ const Reinvest = () => {
   return (
     <Dashboard >
       <DashNavbar />
-    <div className="">
+    <div className="pb-5">
       <div className=" text-strat w-[90%] pt-[5%]">
         <h1 className="text-[var(--C_black_lite)]  text-start  ">Withdraw</h1>
         <p className="text-[var(--C_black_lite)]  text-start  ">

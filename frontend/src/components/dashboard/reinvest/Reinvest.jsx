@@ -52,13 +52,13 @@ const Reinvest = () => {
   return (
     <Dashboard >
       <DashNavbar />
-    <div className="  relative ">
+    <div className="  relative pb-5">
       <h1 className=" fw-bold  text-[var(--C_black_lite)] text-start mt-[5%] ">Reinvest</h1>
         <p className="mt-2 mb-5 text-[var(--C_black_lite)] text-start ">
           Enter amount to reinvest
         </p>
-      <form onSubmit="{handleSubmit}" className=" dash-text my-5 w-[95%] m-auto">
-        <div className="card border-0 me-2 ">
+      <form onSubmit="{handleSubmit}" className=" dash-text my-5 w-[95%] m-auto ">
+        <div className="card border-0 me-2  ">
           <div className="card-body bg-gray-100 rounded-lg drop-shadow-md">
             <hr className="mt-4"></hr>
             <p className="card-text fw-bold text-start mt-5">
