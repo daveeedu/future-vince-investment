@@ -24,7 +24,7 @@ const Footer = () => {
           <h5 className="text-start text-uppercase">Our Company</h5>
           <ul className="list-unstyled text-start ">
             <li className="text-secondary text-white">Home</li>
-            <li className="text-secondary text-white text-white">About</li>
+            {/* <li className="text-secondary text-white text-white">About</li> */}
             <li className="text-secondary text-white text-white">Plans</li>
             <li className="text-secondary text-white text-white">Team</li>
           </ul>
@@ -35,7 +35,7 @@ const Footer = () => {
             <li className="text-secondary text-white">Login</li>
             <li className="text-secondary text-white">Signup</li>
             <li className="text-secondary text-white">FAQ</li>
-            <li className="text-secondary text-white">whitePaper</li>
+            {/* <li className="text-secondary text-white">whitePaper</li> */}
           </ul>
         </div>
         <div className="col-md-3 mb-4 mt-5">
@@ -45,10 +45,10 @@ const Footer = () => {
               <FaHouseUser className="mt-1 mr-3" />  <span>1 Tesla Road Austin, TX 78725</span>
             </li>
             <li className="text-white flex mb-2">
-              <FaEnvelope className="mt-1 mr-3"/>  <span>admin@vinceinvestment.com</span>
+              <FaEnvelope className="mt-1 mr-3"/>  <span>elontrade.info@gmail.com</span>
             </li>
             <li className="text-primary flex">
-              <FaPhone className="mt-1 mr-3"/>  <span>+44 7520 606096</span>
+              <FaPhone className="mt-1 mr-3"/>  <span>+1 (972) 920-6191</span>
             </li>
           </ul>
         </div>

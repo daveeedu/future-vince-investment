@@ -86,6 +86,7 @@ class BACKEND {
     return this.send({
       to: '/user/all/activities',
       type: "get",
+      useAlert: false
     })
   }
   getBalance() {
@@ -121,6 +122,7 @@ class BACKEND {
 
   getAllUsers ({limit, skip}={}){
     return this._API.get(`/user/all/?limit=${limit}&offset=${skip}`)
+    
   }
 
 
