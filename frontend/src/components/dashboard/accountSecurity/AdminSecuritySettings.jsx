@@ -9,10 +9,10 @@ const AdminSecuritySettings = () => {
   return (
     <Dashboard >
       <DashNavbar />
-    <div className="row  ">
+    <div className="  ">
       <div className=" text-start">
         <h1 className="text-[var(--C_black_lite)]  text-start  my-5  ">Security Settings</h1>
-        <div className="card border-0 w-[90%] m-auto">
+        <div className="card border-0 w-[95%] m-auto">
           <div className="card-body bg-gray-100 md:flex md:justify-between mr-5 rounded-lg drop-shadow-md">
             <div className="col-md-8">
               <p className="card-text fw-bold text-start dash-text">
@@ -23,7 +23,7 @@ const AdminSecuritySettings = () => {
               </p>
             </div>
             {/* <div className=" text-start col-md-4 text-end"> */}
-            <button className="btn dash-btn text-center xl:w-[16%] lg:w-[25%] md:w-[32%] md:h-[100%] mt-4" onClick={() => setModalShow(true)}>Change Password</button>
+            <button className="btn dash-btn text-center xl:w-[16%] lg:w-[25%] md:w-[37%] md:h-[100%] mt-4 " onClick={() => setModalShow(true)}>Change Password</button>
               {/* </div> */}
           </div>
         </div>
