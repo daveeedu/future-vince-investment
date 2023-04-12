@@ -962,7 +962,7 @@ select:hover, option:hover {
 }
 
 .pass-modal {
-  color: #6675fc;
+  color: var(--C_black_lite);
   font-size: 1.2em;
   font-weight: bold;
 }
