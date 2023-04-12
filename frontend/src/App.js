@@ -37,7 +37,7 @@ function App() {
       <BrowserRouter>
         {/* <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/> */}
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path={pageUrls.home} element={<Home />} />
           <Route path="/AboutPage" element={<AboutPage />} />
           <Route path="/ContactPage" element={<SignUp />} />
           <Route
@@ -70,26 +70,6 @@ function App() {
           {/* <Route path="/deleteModal" element={<DeleteModal />}/> */}
         </Routes>
       </BrowserRouter>
-
-      <div>
-    {showTawkToScript ? (
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/6432cc714247f20fefeaa87e/1gtj6t7aq';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-            })();
-          `,
-        }}
-      />
-    ) : null}
-  </div>
     </div>
   );
 }
