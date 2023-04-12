@@ -901,10 +901,10 @@ select:hover, option:hover {
   margin-left: 53px !important;
 }
 
-/* .table-style {
-  width: 80% !important;
+.table-style {
+  width: 98% !important;
   margin-bottom: 40% !important;
-} */
+}
 
 .errorMsg {
   color: var(--bs-danger, red);

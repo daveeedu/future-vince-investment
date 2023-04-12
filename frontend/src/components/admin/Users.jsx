@@ -38,7 +38,7 @@ class Users extends React.Component {
 			    </div>
 				
 				<div className="text-start  w-[90%] m-auto overflow-auto md:overflow-visible">
-					<table className="table w-[100%]  mt-5 text-[var(--C_black_lite)] ">
+					<table className="table table-style  w-[100%]  mt-5 text-[var(--C_black_lite)] ">
 						<thead className="text-[var(--C_black_lite)]">
 							<tr>
 								<th>Name</th>
