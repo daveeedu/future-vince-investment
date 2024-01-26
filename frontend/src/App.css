@@ -6,7 +6,7 @@
 
 .navbar-collapse-custom {
   position: relative; /* Default positioning for larger screens */
-}
+} 
 
 @media (max-width: 992px) {
 .navbar-collapse-custom {
