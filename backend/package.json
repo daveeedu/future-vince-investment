@@ -12,7 +12,6 @@
     "migrate:up": "migrate-mongo up -f configs/migration.js",
     "migrate:down": "migrate-mongo down -f configs/migration.js",
     "migrate:status": "migrate-mongo status -f configs/migration.js"
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
