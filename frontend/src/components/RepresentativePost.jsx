@@ -8,7 +8,7 @@ const RepresentativePost = ({ setIsSignedUp }) => {
         <h1 className="py-4">Regional Representative Post</h1>
         <p>
           Whenever you have hundred (100) Active Referrals in your downline
-          ‘Both Direct or <br></br> Indirect Referrals’ you will be Among Bitcoin Engine's Company Regional <br></br>addcastChannel Representative. A
+          ‘Both Direct or <br></br> Indirect Referrals’ you will be Among Bitgrow Investment's Company Regional <br></br>addcastChannel Representative. A
           regional Representative Earns $2000 monthly salary.
         </p>
         <Link

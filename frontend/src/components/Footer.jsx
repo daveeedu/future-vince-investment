@@ -27,8 +27,8 @@ const Footer = () => {
           <ul className="list-unstyled text-start ">
             <li className="text-secondary text-white">Home</li>
             {/* <li className="text-secondary text-white text-white">About</li> */}
-            <li className="text-secondary text-white text-white">Plans</li>
-            <li className="text-secondary text-white text-white">Team</li>
+            <li className="text-secondary  text-white">Plans</li>
+            <li className="text-secondary  text-white">Team</li>
           </ul>
         </div>
         <div className="col-md-3 mb-4 mt-5">
@@ -49,7 +49,7 @@ const Footer = () => {
             </li>
             <li className="text-white flex mb-2">
               <FaEnvelope className="mt-1 mr-3" />{" "}
-              <span>bitcoinengine.org@gmail.com</span>
+              <span>bitgrowinvestment.com@gmail.com</span>
             </li>
             <li className="text-primary flex">
               <FaPhone className="mt-1 mr-3" /> <span>+1 (510) 545-4051</span>
@@ -63,7 +63,7 @@ const Footer = () => {
           <span>2022</span>
         </div>
 
-        <p className=""> Bitcoin Engine. All rights reserved</p>
+        <p className=""> Bitgrow Investment. All rights reserved</p>
         <div className="flex justify-between  ">
           <a href="https://instagram.com/elon_trader?igshid=YmMyMTA2M2Y=" target="_blank">
             <SiFacebook className="me-2 text-white" />

@@ -39,7 +39,7 @@ const Reinvest = () => {
       <div className=" text-strat w-[90%] pt-[5%]">
         <h1 className="text-[var(--C_black_lite)]  text-start  ">Withdraw</h1>
         <p className="text-[var(--C_black_lite)]  text-start  ">
-          Withdraw funds from your Bitcoin Engine account.
+          Withdraw funds from your Bitgrow Investment account.
         </p>
         <form onSubmit={handleSubmit} className="card w-[95%] m-auto my-5 border-0">
           <div className="card-body bg-gray-100 text-start rounded-lg drop-shadow-md">
