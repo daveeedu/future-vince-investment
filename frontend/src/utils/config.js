@@ -26,7 +26,7 @@ environment.development = {
 environment.production = {
   authProps: ["Elon/token", "Elon/user"],
   backendUrl: "https://bitcoinengine.cyclic.app/v1",
-  pageUrls,
+  pageUrls, 
 };
 
 export default environment[process.env.NODE_ENV];
