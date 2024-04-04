@@ -4,7 +4,7 @@ import styled from "styled-components";
 // import { IMainLogo } from "../../utils/icons";
 import Storage from "../utils/storage";
 import logo from "../images/tesla-3.svg";
-import logoTwo from "../images/btc-logo.png";
+import logoTwo from "../images/btc-logo1.png";
 
 
 import { Link, useLocation } from "react-router-dom";

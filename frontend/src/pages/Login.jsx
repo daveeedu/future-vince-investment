@@ -14,7 +14,7 @@ import { useNavigate } from "react-router";
 import config from "../utils/config";
 import { Link } from "react-router-dom";
 import logo from "../images/tesla-3.svg";
-import logoTwo from "../images/btc-logo.png";
+import logoTwo from "../images/btc-logo1.png";
 
 const {
 	pageUrls

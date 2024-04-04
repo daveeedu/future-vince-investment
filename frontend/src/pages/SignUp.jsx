@@ -14,7 +14,7 @@ import Action from '../actions/signup'
 import { Link } from "react-router-dom";
 import config from "../utils/config";
 import logo from "../images/tesla-3.svg";
-import logoTwo from "../images/btc-logo.png";
+import logoTwo from "../images/btc-logo1.png";
 
 const {
 	pageUrls
