@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { SiFacebook, SiTwitter } from "react-icons/si";
 import SimpleMap from "./SimpleMap";
+import cert from '../images/cert-invest.JPG'
 
 const Footer = () => {
   return (
@@ -20,7 +21,7 @@ const Footer = () => {
           <h5 className="text-start text-white text-uppercase ms-5 mb-4 mt-5 flex">
             <FaGem className="mr-3 mt-1" /> <span>Certificate</span>
           </h5>
-          <img className="img-footTwo" src="./images/cert-invest.JPG" alt="#" />
+          <img className="img-footTwo" src={cert} alt="#" />
         </div>
         <div className="col-md-2 text-white mb-4 mt-5">
           <h5 className="text-start text-uppercase">Our Company</h5>
