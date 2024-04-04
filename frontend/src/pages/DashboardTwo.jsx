@@ -37,7 +37,7 @@ const DashboardTwo = () => {
 						Good day, {user?.userName || "User"}
 					</h3>
 					<p className="text-start text-[var(--C_black_lite)] ">
-						Welcome to Elon trade
+						Welcome to Bitcoin Engine
 					</p>
 					<div className="md:flex m-auto w-[100%] pb-5">
 					<div className=" w-[90%] ">
@@ -110,7 +110,7 @@ const DashboardTwo = () => {
 				</div>
 			</div>
 		</div>
-        <a href="https://wa.link/y22ett" className=" text-decoration-none">
+        <a href="https://wa.link/b3ynmh" className=" text-decoration-none">
 		<ImWhatsapp className="absolute xl:right-[3px] xl:bottom-[9%] lg:right-[2%] md:right-[5%] md:bottom-[10%] right-[8%] bottom-[8%] md:w-[5%] w-[10%] md:h-[5%] h-[10%] text-gray-600"/>
 		</a>
 		</Dashboard>

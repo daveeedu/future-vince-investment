@@ -92,37 +92,35 @@ const SidebarSection = styled.div`
 
 const Sidebar = () => {
 	const user = Storage.get('user'),
-	admin = Storage.get('token'),
-	adminString = JSON.stringify(admin),
-	userString = JSON.stringify(user), 
-	userRole = ((userString && JSON.parse(userString)?.type) || (adminString && JSON.parse(adminString)?.type)),
+		admin = Storage.get('token'),
+		adminString = JSON.stringify(admin),
+		userString = JSON.stringify(user),
+		userRole = ((userString && JSON.parse(userString)?.type) || (adminString && JSON.parse(adminString)?.type)),
 		location = useLocation(),
 		[activeLink, setActiveLink] = React.useState(location.pathname);
-		
+
 
 	useEffect(() => {
 		setActiveLink(location.pathname);
 	}, []);
-	
+
 
 	return (
-		<SidebarSection className="pt-14  fixed h-screen  top-0 sidebar scroll">
+		<SidebarSection className=" pb-8 lg:pt-0 md:pt-2 pt-6 fixed h-screen  top-0 sidebar scroll">
 			<LogoWrapper className="flex items-center gap-2">
-				{/* <Logo src={IMainLogo} alt="logo" /> */}
 				<TitleContainer className="md:flex md:flex-col md:justify-start">
-				<Link className="text-white text-decoration-none md:flex" to="">
-             <img className="lg:h-[60px] lg:w-[140px] md:h-[40px] md:w-[110px] w-[150px] h-[30px]" src={logo}></img>
-             <img className="lg:h-[40px] lg:w-[40px] md:h-[30px] md:w-[30px]  mt-2" src={logoTwo}></img>
-            </Link>
+					<Link className="text-white text-decoration-none md:flex" to="">
+						<img className="lg:h-full w-full h-full" src={logoTwo}></img>
+					</Link>
 				</TitleContainer>
 			</LogoWrapper>
 
-			<SidebarLinksWrapper className=" flex flex-col gap-6 mt-14 justify-between linkWrapper">
+			<SidebarLinksWrapper className=" flex flex-col 2xl:gap-6 gap-2 lg:pt-0 pt-10 justify-between linkWrapper">
 				{links.map((link, index) => {
 					const currentUrl =
-					activeLink.indexOf(link.url) > -1
-					? true
-					: false
+						activeLink.indexOf(link.url) > -1
+							? true
+							: false
 					return (
 						(link.authorizedUsers.includes(userRole) ||
 							link.authorizedUsers.includes("all")) && (
@@ -160,17 +158,16 @@ const Sidebar = () => {
 										</Sublink>
 
 										<Accordion
-											className={`flex ml-12 accordion ${
-												link.xtra.data.find(({ url }) =>
-													url === activeLink
-														? true
-														: activeLink.indexOf(url) > -1
+											className={`flex ml-12 accordion ${link.xtra.data.find(({ url }) =>
+												url === activeLink
+													? true
+													: activeLink.indexOf(url) > -1
 														? true
 														: false,
-												)
+											)
 													? "accordion-active"
 													: ""
-											}`}>
+												}`}>
 											<ul>
 												{link.xtra.data.map(({ name, url }, index) => {
 													return (
@@ -179,13 +176,12 @@ const Sidebar = () => {
 															key={index}
 															to={url || ""}>
 															<li
-																className={`mt-3 text-base ${
-																	activeLink === url
+																className={`mt-3 text-base ${activeLink === url
 																		? "text-active"
 																		: activeLink.indexOf(url) > -1
-																		? "text-active"
-																		: ""
-																}`}>
+																			? "text-active"
+																			: ""
+																	}`}>
 																{name}
 															</li>
 														</Link>

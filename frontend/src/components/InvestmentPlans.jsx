@@ -36,7 +36,7 @@ const InvestmentPlans = ({ setIsSignedUp }) => {
       </h1>
       <p className="my-4">
         To make a solid investment, you have to know where you are investing.
-        Find a plan <br></br> which is best for you.
+        Find a plan <br></br> that best suits you.
       </p>
       <div className="md:flex py-5 gap-10 m-auto w-[80%]">
         {investmentPlans.map((investmentPlan) => (
