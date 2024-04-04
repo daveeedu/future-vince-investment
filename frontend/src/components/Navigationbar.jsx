@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
-import logoTwo from '../images/btc-logo.png';
+import logoTwo from '../images/btc-logo1.png';
 import config from '../utils/config';
 
 const { pageUrls } = config;
