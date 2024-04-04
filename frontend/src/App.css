@@ -381,7 +381,7 @@ select:hover, option:hover {
 }
 
 .news-bg {
-  background-image: url("../public/images/4479-V17054557.jpg") !important;
+  background-image: url("./images/4479-V17054557.jpg") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   border-top: 4px solid #cca354 !important;
