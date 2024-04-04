@@ -73,7 +73,7 @@ const signin = async (payload) => {
             </Link>
 					<h3 className="display-5 fw-bold text-start my-4 ms-3 me-5 text-light ">
 						Welcome To <br></br>{" "}
-						<span className="title-spn">Bitcoin Engine</span>
+						<span className="title-spn">Bitgrow Investment</span>
 					</h3>
 				</div>
 				<Form
@@ -122,7 +122,7 @@ const signin = async (payload) => {
         <span >2022</span>
         </div>
       
-          <p className=""> Bitcoin Engine. All rights reserved</p>
+          <p className=""> Bitgrow Investment. All rights reserved</p>
         <div className="flex justify-between  ">
           <a href="https://facebook.com"> 
           <SiFacebook className="me-2 text-white" /> 

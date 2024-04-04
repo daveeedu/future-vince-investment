@@ -25,7 +25,7 @@ const HowItWorks = () => {
   return (
     <div className="team-bg pb-5">
       <h1 className="mt-5 py-5 text-light display-4">
-        How Bitcoin <span className="title-spn">Engine Works</span>
+        How Bitgrow <span className="title-spn">Investment Works</span>
       </h1>
       <p className="my-4 text-light">
         Get involved in our tremendous platform and Invest. We will utilize your
