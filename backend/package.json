@@ -5,6 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "start": "node ./index.js",
+    "render-start": "node ./backend/index.js",
     "build": "rm -rf node_modules && rm -rf package-lock.json && npm i && npm install --save dotenv",
     "dev": "nodemon index.js",
     "test": "mocha -w --recursive test",
