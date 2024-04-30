@@ -20,12 +20,12 @@ const pageUrls = {
 environment.development = {
   //  backendUrl: "http://localhost:9000/v1",
   authProps: ["Elon/token", "Elon/user"],
-  backendUrl: "https://bitcoinengine.cyclic.app/v1",
+  backendUrl: "https://vince-service.onrender.com/v1",
   pageUrls,
 };
 environment.production = {
   authProps: ["Elon/token", "Elon/user"],
-  backendUrl: "https://bitcoinengine.cyclic.app/v1",
+  backendUrl: "https://vince-service.onrender.com/v1",
   pageUrls, 
 };
 
