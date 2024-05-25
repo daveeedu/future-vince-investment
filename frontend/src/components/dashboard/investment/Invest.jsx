@@ -15,9 +15,9 @@ const Invest = () => {
       id: 2,
       title: "Silver Plan",
       roi: "21% ",
-      min: "$1000",
+      min: "$500",
       max: "$4999",
-      days: "ROI after 6 Days",
+      days: "ROI after 15 Days",
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ const Invest = () => {
       roi: "30% ",
       min: "$5000",
       max: "$9999",
-      days: "ROI after 6 Days",
+      days: "ROI after 15 Days",
     },
     {
       id: 4,
@@ -33,7 +33,7 @@ const Invest = () => {
       roi: "42% ",
       min: "$10000",
       max: "$10000000",
-      days: "ROI after 6 Days",
+      days: "ROI after 15 Days",
     },
   ];
 

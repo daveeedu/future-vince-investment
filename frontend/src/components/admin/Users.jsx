@@ -18,8 +18,9 @@ class Users extends React.Component {
 	}
 	requestUsers() {
 		new BACKEND()
-			.getAllUsers()
+			.getAllUsers({limit: 10, type: 2, offset: true})
 			.then((user) => {
+				console.log(user);
 				if (user) {
 					this.setState({ ...this.state, users: [...user.data.data.data] });
 				}
@@ -50,6 +51,7 @@ class Users extends React.Component {
 						</thead>
 						<tbody className="w-[90%] ">
 							{this.state?.users?.map((user, i) => {
+								console.log(user);
 								return <UsersTable user={user} key={user._id} that={this}/>;
 							})}
 						</tbody>

@@ -34,7 +34,7 @@ const links = [
     }
   },
   {
-    authorizedUsers: [SuperAdmin],
+    authorizedUsers: [SuperAdmin,],
     name: "Dashboard",
     url: pageUrls.adminDashTwo,
     icon: <MdIcons.MdOutlineDashboard  size = {

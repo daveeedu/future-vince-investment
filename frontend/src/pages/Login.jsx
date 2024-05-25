@@ -28,7 +28,7 @@ const API = new BACKEND();
 const model = {
   email: "",
   password: "",
-  type: "User",
+//   type: "User",
 };
 const setState = (setFormData, value) => {
   setFormData((data) => {

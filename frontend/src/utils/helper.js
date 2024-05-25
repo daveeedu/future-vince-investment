@@ -1,8 +1,8 @@
 import Storage from "./storage";
 import config from "./config";
 
-const userInfo = Storage.get('user');
-console.log(userInfo)
+export const userInfo = Storage.get('user');
+console.log(userInfo.user.role)
 
 
 export const Roles = {
@@ -10,3 +10,5 @@ export const Roles = {
     User: "User"
    }
 
+
+   

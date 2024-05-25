@@ -8,6 +8,7 @@ import BACKEND from "../../utils/backend";
 import DeleteModal from "../modal/DeleteModal";
 
 function Users({ user, that}) {
+	console.log(user);
  const {state} = that;
 	const [modalShow, setModalShow] = useState(false);
 
@@ -76,7 +77,7 @@ function Users({ user, that}) {
 			</td>
 			<td className="text-[var(--C_black_lite)] pt-3">{dayjs(user?.user?.lastLogin || user?.user?.createdAt)?.format('DD/MM/YYYY HH:mm')}</td>
 			<td className="text-[var(--C_black_lite)] pt-3">
-				{getStatus(user?.user?.status)}
+				{getStatus(user?.status)}
 			</td>
 			<td className="pt-3">
 				<div className="flex">
@@ -89,7 +90,7 @@ function Users({ user, that}) {
 				</a>
 				<a
 					href="#delete"
-					data-id={user?.user._id}
+					data-id={user?._id}
 					className="text-decoration-none text-[var(--C_black_lite)] pt-2 ms-2"
 					title="Delete">
 					<RiDeleteBin5Line className="text-gray-800"/>
@@ -100,7 +101,7 @@ function Users({ user, that}) {
 					href="#suspend"
 					className="text-decoration-none text-[var(--C_black_lite)]  pt-2 ms-2"
 					title="Suspend"
-					data-id={user?.user?._id}>
+					data-id={user?._id}>
 					<FaUserAltSlash className="text-gray-800"/>
 				</a>
     :
@@ -108,7 +109,7 @@ function Users({ user, that}) {
 					href="#suspend"
 					className="text-decoration-none text-[var(--C_black_lite)] pt-2 ms-2"
 					title="Revoke suspension"
-					data-id={user?.user?._id}>
+					data-id={user?._id}>
 					<FaUser className="text-gray-800"/>
 				</a>
 } 

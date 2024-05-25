@@ -97,6 +97,22 @@ class BACKEND {
     })
   }
 
+  getTotalInvested() {
+    return this.send({
+      to: '/bank/total-invested',
+      type: "get",
+      useAlert: false
+    })
+  }
+
+  getProfit() {
+    return this.send({
+      to: '/bank/profits',
+      type: "get",
+      useAlert: false
+    })
+  }
+
   toggleSuspension(id) {
     const  res = this.send({
       to: `/user/enable-disable/${id}`,
@@ -120,8 +136,8 @@ class BACKEND {
     })
   }
 
-  getAllUsers ({limit, skip}={}){
-    return this._API.get(`/user/all/?limit=${limit}&offset=${skip}`)
+  getAllUsers ({limit, skip, type}={}){
+    return this._API.get(`/user/all/?limit=${limit}&offset=${skip}&type=${type}`)
     
   }
 
@@ -167,7 +183,6 @@ class BACKEND {
       payload
     })
   }
-
   withdraw (payload) {
     Alert({
       type: "info",

@@ -7,6 +7,7 @@ import { ImWhatsapp } from "react-icons/im";
 
 const Reinvest = () => {
   const {bank: {plan}} = Storage.get("user");
+  console.log(plan)
 
   const perc = plan?.percentage
   console.log(perc+"%", "ROI", plan?.name);
@@ -31,6 +32,7 @@ const Reinvest = () => {
     const name = targ.name;
     setModelState({...modelState, [name]: targ.value});
     if(name === 'amount'){
+      console.log(targ.value)
       const profit = (perc / 100 * parseInt(targ.value)).toFixed(2);
       setModelState({...modelState, profit, [name]: Number(targ.value)});
       setState({...state, profit, total: Number(profit) + Number(modelState.amount)});
@@ -81,7 +83,7 @@ const Reinvest = () => {
               </div>
               <div className="col-md-4">
                 <h5 className="">Received Profit</h5>
-                <p className="text-secondary">+ { state.profit==='NaN'?0: state.profit} USD</p>
+                <p className="text-secondary">+ { state.profit==='NaN' ? 0 : state.profit} USD</p>
               </div>
               <div className="col-md-4">
                 <h5 className="">Total Payout</h5>
