@@ -8,15 +8,15 @@ const InvestmentPlans = ({ setIsSignedUp }) => {
       title: "Silver Plan",
       roi: "21% ROI +",
       cap: "capital",
-      days: "For 6 Days",
-      amount: "$1000 - $4999",
+      days: "For 15 Days",
+      amount: "$500 - $4999",
     },
     {
       id: 1,
       title: "Diamond Plan",
       roi: "30% ROI +",
       cap: "capital",
-      days: "For 6 Days",
+      days: "For 15 Days",
       amount: "$5000 - $9999",
     },
     {
@@ -24,7 +24,7 @@ const InvestmentPlans = ({ setIsSignedUp }) => {
       title: "Golden Plan",
       roi: "42% ROI +",
       cap: "capital",
-      days: "For 6 Days",
+      days: "For 15 Days",
       amount: "$10000 - $10000000",
     },
   ];
