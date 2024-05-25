@@ -7,7 +7,7 @@ import DashNavbar from "../DashNavbar";
 import dayjs from "dayjs";
 import { FcCheckmark } from 'react-icons/fc';
 import { FaTimes } from 'react-icons/fa';
-import { userInfo } from "../../utils/helper";
+
 
 class AdminDash2 extends React.Component {
   constructor(props) {
