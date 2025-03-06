@@ -7,44 +7,56 @@ const UserFeedBacks = () => {
       country: "USA",
       name: "Sundax Ezma",
       img: "./images/feed1.jpg",
-      msg: "Very friendly staff, everyone is efficient, polite and knowledgeable and go that little bit further than others. It is enjoyable to talk with a real person who takes personal interest in the conversation and has the knowledge to resolve and or explain the situation. The little things that make a big difference are what you notice. Theres no down side. If you have $10,000 or more in your bank account, you need to sign up with Bitgrow Investment!",
+      msg: "I've been investing with FredKinectics for over 4 years and I'm extremely satisfied. Even during COVID, their services remained consistent and reliable!",
     },
     {
       id: 2,
       country: "India",
       name: "Monalisa Thakur",
       img: "./images/feed2.jpg",
-      msg: "For the 4 plus years investing with Bitgrow Investment, I have been extremely satisfied with their investment packages. They have been some issues, but a chat with their customer support quickly resolved them. They have always delivered as promised. Business decisions and procedures where easily modified to maintain completion of procedures even with COVID.",
+      msg: "I've been investing with FredKinectics for over 4 years and I'm extremely satisfied. Even during COVID, their services remained consistent and reliable!",
     },
     {
       id: 3,
       country: "Singapore",
       name: "Donald I.",
       img: "./images/feed3.jpg",
-      msg: "I have invested with this platform and gotten my money in my account. This is legit and safe. Great doing business with them,",
+      msg: "I have invested with this platform and successfully withdrawn my money. This is legit and safe. Great doing business with them!",
     },
   ];
+
   return (
-    <div className="feedback-bg ">
-      <h1 className="text-light  pt-5 display-4">
-        What Users Say <span className="title-spn">About Us</span>
+    <div className="bg-white py-16 px-6 text-center">
+      {/* Heading Section */}
+      <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+        What Users Say <span className="text-yellow-500">About Us</span>
       </h1>
-      <p className="text-light my-4">
-        We are doing really good at this market and here are the words we loved
-        to get from a <br></br> few of our users.
+      <p className="text-gray-600 text-lg mt-4">
+        We are making a real impact in the investment market. Here’s what some
+        of our users have to say.
       </p>
-      <div className="feedbacks row px-3">
+
+      {/* Testimonials Container */}
+      <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto">
         {feedBacks.map((feedBack) => (
           <div
-            className="feedback col-lg-3 my-3 border text-start "
             key={feedBack.id}
+            className="bg-gradient-to-br from-gray-100 to-gray-50 p-6 rounded-2xl border border-gray-200 transition-all duration-300 flex flex-col justify-between h-[280px]"
           >
-            <p className="m-3">{feedBack.msg}</p>
-            <div className=" d-flex justify-content-end">
-              <img className="feedback-img " src={feedBack.img} alt="user" />
+            <p className="text-gray-700 italic">"{feedBack.msg}"</p>
+
+            {/* User Info (Bottom-Aligned) */}
+            <div className="flex items-center mt-6">
+              <img
+                className="w-12 h-12 rounded-full border-2 border-blue-500"
+                src={feedBack.img}
+                alt={feedBack.name}
+              />
+              <div className="ml-3">
+                <p className="text-gray-900 font-semibold">{feedBack.name}</p>
+                <p className="text-sm text-gray-500">User from {feedBack.country}</p>
+              </div>
             </div>
-            <p className="ms-3">{feedBack.name}</p>
-            <p className="ms-3 ">User From {feedBack.country}</p>
           </div>
         ))}
       </div>

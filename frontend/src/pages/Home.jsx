@@ -45,13 +45,15 @@ const Home = () => {
   return (
     <div className="overflow-x-hidden z-20">
       <Navigationbar isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
+      <div className="bg-red-400">
       <Scroller />
+      </div>
       <Hero />
       <AboutUs />
       <InvestmentPlans isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
-      <Note />
+      {/* <Note /> */}
       <WhyChoseVice />
-      <LiveTrade />
+      {/* <LiveTrade /> */}
       <HowItWorks />
       <Faq />
       <UserFeedBacks />
@@ -59,7 +61,7 @@ const Home = () => {
       <DepositAndWithdrawal />
       <RepresentativePost isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
       <News />
-      <Subscribe />
+      {/* <Subscribe /> */}
       <Footer />
     </div>
   );

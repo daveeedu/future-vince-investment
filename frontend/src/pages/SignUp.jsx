@@ -1,287 +1,152 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import propTypes from 'prop-types';
-
-import {
-	FaInstagramSquare,
-	FaLinkedinIn,
-	FaCopyright,
-} from "react-icons/fa";
+import propTypes from "prop-types";
+import { FaInstagramSquare, FaLinkedinIn, FaCopyright } from "react-icons/fa";
 import { SiFacebook, SiTwitter } from "react-icons/si";
-import Login from "./Login"
-import Action from '../actions/signup'
+import Login from "./Login";
+import Action from "../actions/signup";
 import { Link } from "react-router-dom";
 import config from "../utils/config";
-import logo from "../images/tesla-3.svg";
-import logoTwo from "../images/btc-logo1.png";
+import logoTwo from "../images/logo2.png";
+import bgImage from "../images/btc-img-2.jpg";
 
-const {
-	pageUrls
-  } = config;
-
+const { pageUrls } = config;
 
 const model = {
-	name: "",
-	userName: "",
-	email: "",
-	confirmEmail: "",
-	country: "",
-	number: "",
-	walletId: "",
-	password: "",
-	confirmPassword: "",
-	referrer: "",
-	privacyPolicy: false,
-	type: "User",
+  Name: "",
+  UserName: "",
+  Email: "",
+  ConfirmEmail: "",
+  Country: "",
+  Number: "",
+  WalletId: "",
+  Password: "",
+  ConfirmPassword: "",
+  Referrer: "",
+  PrivacyPolicy: false,
+  Type: "User",
 };
 
 const setState = (setFormData, value) => {
-	setFormData((data) => {
-		return { ...data, ...value };
-	});
+  setFormData((data) => ({ ...data, ...value }));
 };
 
-
-
-const SignUp = ({setIsSignedUp, isSignedUp}) => {
+const SignUp = ({ setIsSignedUp, isSignedUp }) => {
   const [error, setError] = useState({ email: "", pass: "" });
-	const [formData, setFormData] = useState(model);
+  const [formData, setFormData] = useState(model);
 
+  useEffect(() => {}, [formData]);
 
-	useEffect(
-		(e) => {
-			// console.log(formData);
-		},
-		[formData],
-	);
+  const addData = (e) => {
+    let key = e.target.getAttribute("name");
+    if (key in formData) {
+      setState(setFormData, { [key]: e.target.value });
+    } else throw new Error("Invalid input key name in form!");
+  };
 
-	function addData(e) {
-		let data = {},
-			key = e.target.getAttribute("name");
-		if (key in formData) {
-			data[key] = e.target.value;
-			setState(setFormData, data);
-		} else throw new Error("Invalid input key name in form!");
-	}
-
-
-	return (
-		(!isSignedUp ? <div className=" backgrnd-0 ">
-			<div className="">
-				<div className="hero-bg  signUp-border2">
-				<Link className="text-white text-decoration-none flex" to="">
-				<img className="w-[30%] h-[40%]" src={logoTwo}></img>
-            </Link>
-					<h3 className="display-5 fw-bold text-start my-5 ms-3 me-5 text-light ">
-						Welcome To <br></br>{" "}
-						<span className="title-spn">Bitgrow Investment</span>
-					</h3>
-				</div>
-				<Form
-					className=" signUp-border "
-					onSubmit={async (e) => {
-						e.preventDefault();
-						await Action.submit(formData, setIsSignedUp);
-					}}>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="mt-4 pt-5 text-light">Name</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="text"
-							name="name"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Username</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="text"
-							name="userName"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicEmail">
-						<Form.Label className="text-light">Email Address</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="email"
-							name="email"
-							onChange={(e) => {
-								addData(e);
-								if (e.target.value === formData.confirmEmail)
-									setError((state) => ({ ...state, email: "" }));
-								else {
-									let value =
-										"This field must match with the Email Address field!";
-									setError((state) => ({ ...state, email: value }));
-								}
-							}}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicEmail">
-						<Form.Label className="text-light">
-							Confirm Email Address
-						</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="email"
-							name="confirmEmail"
-							onBlur={(e) => {
-								if (e.target.value !== formData.email) {
-									let value =
-										"This field must match with the Email Address field!";
-									setError((state) => ({ ...state, email: value }));
-								} else setError((state) => ({ ...state, email: "" }));
-							}}
-							onChange={(e) => {
-								addData(e);
-								setError((state) => ({ ...state, email: "" }));
-							}}
-						/>
-
-						<p className="errorMsg">{error.email}</p>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Country</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="text"
-							name="country"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Phone Number</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="phone"
-							name="number"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Bitcoin Wallet</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="text"
-							name="walletId"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Password</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="password"
-							name="password"
-							onChange={(e) => {
-								addData(e);
-
-								if (e.target.value === formData.confirmPassword)
-									setError((s) => ({ ...s, pass: "" }));
-								else {
-									let d = "This field must match with the Password field!";
-									setError((s) => ({ ...s, pass: d }));
-								}
-							}}
-						/>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">Confirm Password</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="password"
-							placeholder="Confirm Password"
-							name="confirmPassword"
-							onChange={(e) => {
-								addData(e);
-								setError((s) => ({ ...s, pass: "" }));
-							}}
-							onBlur={(e) => {
-								if (e.target.value !== formData.password) {
-									let d = "This field must match with the Password field!";
-									setError((s) => ({ ...s, pass: d }));
-								} else setError((s) => ({ ...s, pass: "" }));
-							}}
-						/>
-
-						<p className="errorMsg">{error.pass}</p>
-					</Form.Group>
-					<Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-						<Form.Label className="text-light">
-							Referral Id (Optional)
-						</Form.Label>
-						<Form.Control
-							className="p-3 form-con text-light"
-							type="text"
-							name="referrer"
-							onChange={addData}
-						/>
-					</Form.Group>
-					<Form.Group
-						className="mb-3 d-flex flex-row"
-						controlId="formBasicCheckbox">
-						<Form.Check
-							className="bd-highlight "
-							type="checkbox"
-							name="privacyPolicy"
-							onChange={addData}
-						/>
-						<span className="ms-2 bd-highlight text-light">
-							I agree with{" "}
-							<span className="title-spn">
-								Privacy & Policy <span className="text-light">,</span> Terms &
-								Condition
-							</span>
-						</span>
-					</Form.Group>
-					<Button
-						className="d-flex justify-content-start  btn-custom "
-						type="submit">
-						SignUp Now
-						{/* <Link className="text-decoration-none" to="/AdminDash2">SignUp Now</Link> */}
-					</Button>
-					
-					<p className="text-start mt-4 text-light">
-						Have an account?{" "}
-						 <Link style={{textDecoration: "none"}}
-						 className="title-spn cursor-pointer"
-							 to={pageUrls.login}>
-									Login</Link>
-					</p>
-				</Form>
-			</div>
-			<div className="flex justify-between bg m-auto rights bgBlack text-white mt-5 px-5 py-3">
-        <div className='flex'>
-        <FaCopyright className='mt-1 mr-2'/> 
-        <span >2022</span>
+  return !isSignedUp ? (
+    <div className="h-screen w-full flex justify-center items-center bg-white ">
+      <div
+        className="flex h-[100%] bg-white w-[100%] justify-center rounded-[20px] items-center text-white "
+        style={{
+          boxShadow:
+            "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
+        }}
+      >
+        <div
+          className="hidden md:flex flex-1 h-full items-center justify-center bg-[#1a1a2e] bg-cover bg-center relative"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+          <div className="absolute inset-0 bg-[#0d0f1a] bg-opacity-[75%]"></div>
+          <div className="absolute top-4 left-4">
+            <img src={logoTwo} className="w-[50%]" alt="Logo" />
+          </div>
+		  <div className="absolute top-40 items-left  text-left px-11">
+            <h1 className="text-white text-[80px] font-bold">Explore The Largest <span className="text-yellow-500">BTC</span> Trading Platform <br/></h1>
+            <p className="text-gray-300 mt-4 text-2xl max-w-[60%]">Join us and start your journey with the most advanced and secure trading platform.</p>
+          </div>
+		  {/* <div className="absolute bottom-8 w-full text-left px-6">
+            <p className="text-gray-200 mb-4">
+              Discover and cherish your most precious moments with us.
+            </p>
+            <div className="flex items-center">
+              <input
+                type="text"
+                placeholder="Search memories..."
+                className="w-3/4 p-3 rounded-l-lg text-gray-700 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 "
+              />
+              <button className="bg-blue-500 hover:bg-blue-600 p-[17px] rounded-r-lg text-white font-semibold">
+                Search
+              </button>
+            </div>
+          </div> */}
         </div>
-      
-          <p className=""> Bitgrow Investment. All rights reserved</p>
-        <div className="flex justify-between  ">
-          <a href="https://facebook.com"> 
-          <SiFacebook className="me-2 text-white" /> 
-          </a>
-          <a href="https://instagram.com">
-            <FaInstagramSquare className="me-2 text-white" />
-          </a>
-          <a href="https://twitter.com">
-            <SiTwitter className="me-2 text-white" />
-          </a>
-          <a href="https://linkedin.com">
-          <FaLinkedinIn className="text-white" />
-          </a>
+
+        <div className="w-full md:w-1/2 h-[100%] flex justify-center items-center">
+		<div className="w-[95%] h-[95%] flex flex-col justify-center  py-20 px- md:px-16 scroll lg:px-24 overflow-y-auto no-scrollbar">
+		<Form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              await Action.submit(formData, setIsSignedUp);
+            }}
+          >
+            <h2 className="text-3xl text-black font-bold mt-40 mb-6">Create Account</h2>
+            <p className="text-gray-400 text-sm mb-6">
+              Already have an account?{" "}
+              <Link to={pageUrls.login} className="text-blue-400 hover:underline">
+                Sign in
+              </Link>
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.keys(model).map((key, index) => (
+                key !== "PrivacyPolicy" &&
+                key !== "Type" && (
+                  <Form.Group className="mb-3 text-start" key={index}>
+                    <Form.Label className="text-gray-700">
+                      {key.replace(/([A-Z])/g, " $1").trim()}
+                    </Form.Label>
+                    <Form.Control
+                      className="p-3 form-con border-2 border-gray-900 text-gray-700"
+                      type={key.includes("Password") ? "password" : "text"}
+                      name={key}
+                      onChange={addData}
+                    />
+                  </Form.Group>
+                )
+              ))}
+            </div>
+            <Form.Group className="mb-3 d-flex flex-row" controlId="formBasicCheckbox">
+              <Form.Check
+                className="bd-highlight "
+                type="checkbox"
+                name="PrivacyPolicy"
+                onChange={(e) => setState(setFormData, { PrivacyPolicy: e.target.checked })}
+              />
+              <span className="ms-2 bd-highlight text-gray-700">
+                I agree with {" "}
+                <span className="text-blue-400 hover:underline">
+                  Privacy & Policy, Terms & Condition
+                </span>
+              </span>
+            </Form.Group>
+            <Button className="d-flex mx-auto w-[40%] flex items-center justify-center py-3 mt-[20px] btn-custom" type="submit">
+              Sign Up Now
+            </Button>
+          </Form>
+		</div>
+          
         </div>
       </div>
-		</div> : <Login isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>) 
-	);
+    </div>
+  ) : (
+    <Login isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
+  );
 };
-
 
 SignUp.propTypes = {
   isSignedUp: propTypes.bool,
-  setIsSignedUp: propTypes.func
-}
+  setIsSignedUp: propTypes.func,
+};
+
 export default SignUp;

@@ -1,114 +1,107 @@
 import React from "react";
-import { TbTruckDelivery } from "react-icons/tb";
-import { FaRegClone, FaUserLock, FaUsers, FaServer } from "react-icons/fa";
-import { AiOutlineLock } from "react-icons/ai";
-import { BsHeadset } from "react-icons/bs";
-import { FaExpeditedssl } from "react-icons/fa";
-import { SiFsecure } from "react-icons/si";
+import { MdOutlineVerifiedUser, MdSecurity, MdSpeed } from "react-icons/md";
+import { TbShieldCheck, TbCoinBitcoin } from "react-icons/tb";
+import { HiOutlineServerStack } from "react-icons/hi2";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { FaUsersCog } from "react-icons/fa";
+import { BiLockOpenAlt } from "react-icons/bi";
 
 const WhyChoseVice = () => {
-  //create an array of objects
   const whyChoseVice = [
     {
       id: 1,
-      //import image from images
-      image: "../images/copy.svg",
-      //import icon from react-icons
-      icon: <FaRegClone />,
-      title: "Legal Company",
+      icon: <MdOutlineVerifiedUser className="text-blue-400 text-5xl" />,
+      title: "Legal & Certified",
       details:
-        "Our company conducts absolutely legal activities in the legal field. We are certified to operate investment business, we are legal and safe.",
+        "We operate within the legal framework and are certified for investment business. Your investments are safe with us.",
     },
     {
       id: 2,
-      image: "../images/lock.svg",
-      icon: <AiOutlineLock />,
-      title: "High reliability",
+      icon: <TbShieldCheck className="text-green-400 text-5xl" />,
+      title: "Top Security",
       details:
-        "We are trusted by a huge number of people. We are working hard constantly to improve the level of our security system and minimize possible risks.",
+        "We employ advanced security measures to protect your assets, reducing risks to the lowest level possible.",
     },
     {
       id: 3,
-      image: "../images/userlock.svg",
-      icon: <FaUserLock />,
-      title: "Anonymity",
+      icon: <BiLockOpenAlt className="text-yellow-400 text-5xl" />,
+      title: "Anonymous & Secure",
       details:
-        "Anonymity and using cryptocurrency as a payment instrument. In the era of electronic money – this is one of the most convenient ways of cooperation.",
+        "We respect your privacy with crypto-based transactions, ensuring full anonymity and security for all investments.",
     },
     {
       id: 4,
-      image: "../images/delivery-svgrepo-com.svg",
-      icon: <TbTruckDelivery />,
-      title: "Quick Withdrawal",
+      icon: <MdSpeed className="text-red-400 text-5xl" />,
+      title: "Instant Withdrawals",
       details:
-        "Our all retreats are treated spontaneously once requested. There are high maximum limits. The minimum withdrawal amount is only $10 .",
+        "Your withdrawals are processed instantly with no delays. The minimum withdrawal amount is just $10.",
     },
     {
       id: 5,
-      image: "../images/users-alt.svg",
-      icon: <FaUsers />,
-      title: "Referral Program",
+      icon: <FaUsersCog className="text-purple-400 text-5xl" />,
+      title: "Referral Earnings",
       details:
-        "We are offering a certain level of referral income through our referral program. you can increase your income by simply refer a few people.",
+        "Earn extra income through our referral program. The more you refer, the more you earn.",
     },
     {
       id: 6,
-      image: "../images/headset.svg",
-      icon: <BsHeadset />,
+      icon: <RiCustomerService2Fill className="text-cyan-400 text-5xl" />,
       title: "24/7 Support",
       details:
-        "We provide 24/7 customer support through e-mail and telegram. Our support representatives are periodically available to elucidate any difficulty.",
+        "We provide round-the-clock customer support via email and Telegram for quick issue resolution.",
     },
     {
       id: 7,
-      image: "../images/server-svgrepo-com.svg",
-      icon: <FaServer />,
-      title: "Dedicated Server",
+      icon: <HiOutlineServerStack className="text-indigo-400 text-5xl" />,
+      title: "Powerful Servers",
       details:
-        "We are using a dedicated server for the website which allows us exclusive use of the resources of the entire server.",
+        "Our dedicated servers ensure lightning-fast transactions with minimal downtime, maximizing efficiency.",
     },
     {
       id: 8,
-      image: "../images/expeditedssl-svgrepo-com.svg",
-      icon: <FaExpeditedssl />,
-      title: "SSL Security",
+      icon: <MdSecurity className="text-orange-400 text-5xl" />,
+      title: "SSL Encryption",
       details:
-        "Comodo Essential-SSL Security encryption confirms that the presented content is genuine and legitimate.",
+        "We use high-level SSL encryption to secure transactions and verify legitimate investment activity.",
     },
     {
       id: 9,
-      image: "../images/shield-svgrepo-com.svg",
-      icon: <SiFsecure />,
-      title: "DDOS Protection",
+      icon: <TbCoinBitcoin className="text-teal-400 text-5xl" />,
+      title: "DDoS Protection",
       details:
-        "We are using one of the most experienced, professional, and trusted DDoS Protection and mitigation provider.",
+        "We leverage top-tier DDoS protection to ensure smooth and uninterrupted trading operations.",
     },
   ];
 
   return (
-    <div className=" choice-bg">
-      <h1 className=" text-light py-5 display-4">
-        Why Choose <span className="title-spn">Bitgrow Investment?</span>
+    <div className="py-20 px-6 md:px-16 bg-[#0d0f1a] text-white text-center">
+      {/* Section Header */}
+      <h1 className="text-4xl md:text-5xl font-bold">
+        Why Choose <span className="text-yellow-400">FredKinectics Investment?</span>
       </h1>
-      <p className="text-light">
-        Our goal is to provide our investors with a reliable source of high
-        income, while <br></br> minimizing any possible risks and offering a
-        high-quality service.
+      <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+        We provide a reliable investment platform with top security, instant withdrawals,
+        and a transparent referral program.
       </p>
-      <div className="row mt-5 pb-5 px-4">
-        {whyChoseVice.map((item) => {
-          return (
-            <div
-              className="col-lg-4 col-md-6 card crd border-0 bg-transparent text-start"
-              key={item.id}
-            >
-              <h4 className="">
-                <span className="align-center">{item.icon}</span> {item.title}
-              </h4>
-              <p className="text-light">{item.details}</p>
-            </div>
-          );
-        })}
+
+      {/* Features Grid */}
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {whyChoseVice.map((item) => (
+          <div
+            key={item.id}
+            className="relative p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 hover:shadow-yellow-500/30"
+            style={{
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              background:
+                "linear-gradient(186.47deg, rgba(255, 255, 255, 0.15) -20.85%, rgba(255, 255, 255, 0.1) -20.83%, rgba(255, 255, 255, 0.05) 116.4%)",
+              backdropFilter: "blur(15px)",
+            }}
+          >
+            <div className="flex justify-center mb-4">{item.icon}</div>
+            <h3 className="text-2xl font-semibold text-yellow-400">{item.title}</h3>
+            <p className="text-gray-300 mt-3">{item.details}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

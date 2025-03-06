@@ -2,59 +2,57 @@ import React from "react";
 
 const News = () => {
   return (
-    <div className=" news-bg px-14 bg-black">
-      <h1 className="my-4 display-4 text-light">
-        Our Latest <span className="title-spn">News </span>
+    <div className="px-10 py-16 bg-white">
+      {/* Title Section */}
+      <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
+        Our Latest <span className="text-yellow-500">News</span>
       </h1>
-      <p className="mb-5 text-light">
-        you will get each update about our system and the world market in this
-        area. Keep <br></br> checking our Latest News to be in touch.{" "}
+      <p className="text-gray-600 text-lg text-center mt-3">
+        Stay updated with the latest news about our system and the global market.
       </p>
-      <div className="row m-auto">
-        <div className="col-md-4">
-          <div className="card bg-dark new-bd">
-            <img
-              className="card-img-top news-img "
-              src="./images/news1.jpg"
-              alt="Card image cap"
-            />
-            <div className="card-body text-light text-start">
-              <h5 className="card-title">
-                Why Bitcoin will eventually change the world.
-              </h5>
-              <p className="card-text">
-                If you take even a passing interest in technology or finance,
-                you’ll already know about Bitcoin. The digital currency was
-                released in 2009 and was heralded as a decentralised network for
-                value exchange that would take power away from governments and
-                big banks and put it in the hands of ordinary people...
-              </p>
-              <a href="#" className="btn btn-custom">
-                Read More
-              </a>
-            </div>
+
+      {/* News Container */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* News Card 1 */}
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+          <img
+            className="w-full h-60 object-cover"
+            src="./images/news1.jpg"
+            alt="Bitcoin News"
+          />
+          <div className="p-6">
+            <h5 className="text-2xl font-bold text-gray-900">
+              Why Bitcoin will eventually change the world
+            </h5>
+            <p className="text-gray-700 mt-2">
+              If you take even a passing interest in technology or finance,
+              you’ll already know about Bitcoin. The digital currency was
+              released in 2009 and was heralded as a decentralized network...
+            </p>
+            <a href="#" className="mt-4 inline-block text-yellow-500 font-semibold text-lg hover:underline">
+              Read More →
+            </a>
           </div>
         </div>
-        <div className="col-md-4">
-          <div className="card bg-dark new-bd">
-            <img
-              className="card-img-top news-img "
-              src="./images/news2.jpg"
-              alt="Card image cap"
-            />
-            <div className="card-body text-light text-start">
-              <h5 className="card-title">How Bitcoin Works</h5>
-              <p className="card-text">
-                How exactly to categorize Bitcoin is a matter of controversy. Is
-                it a type of currency, a store of value, a payment network or an
-                asset class? Fortunately, it's easier to define what Bitcoin
-                actually is. It's software. Don't be fooled by stock images of
-                shiny coins emblazoned with modified Thai baht symbols...
-              </p>
-              <a href="#" className="btn btn-custom">
-                Read More
-              </a>
-            </div>
+
+        {/* News Card 2 */}
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+          <img
+            className="w-full h-60 object-cover"
+            src="./images/news2.jpg"
+            alt="How Bitcoin Works"
+          />
+          <div className="p-6">
+            <h5 className="text-2xl font-bold text-gray-900">How Bitcoin Works</h5>
+            <p className="text-gray-700 mt-2">
+              How exactly to categorize Bitcoin is a matter of controversy. Is
+              it a type of currency, a store of value, a payment network, or an
+              asset class? Fortunately, it's easier to define what Bitcoin
+              actually is...
+            </p>
+            <a href="#" className="mt-4 inline-block text-yellow-500 font-semibold text-lg hover:underline">
+              Read More →
+            </a>
           </div>
         </div>
       </div>

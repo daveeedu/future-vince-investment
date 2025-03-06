@@ -1,62 +1,89 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import questionMark from "../images/man-question.png";
 
 const Faq = () => {
   return (
-    <div className="faq-bg ">
-      <h1 className="display-4 text-light py-5">
-        Frequently Asked <span className="title-spn">Questions</span>
-      </h1>
-      <p className="text-light">
-        We answer some of your Frequently Asked Questions regarding our
-        platform. If you <br></br> have a query that is not answered here,
-        Please contact us.
-      </p>
-      <Accordion className=" mt-5 pb-5" >
-        <Accordion.Item className="my-3 faq-1" eventKey="0">
-          <Accordion.Header className="custom-Accord ">
-            <AiOutlineQuestionCircle className="me-2 " />When can I deposit/withdraw from my Investment account?
-          </Accordion.Header>
-          <Accordion.Body>
-          Deposit and withdrawal are available to users at any time. Be sure, that your funds are not used in any ongoing trade before the withdrawal. The available amount is shown in your dashboard on the main page as Available Balance.
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item className="my-3 border-top faq-1" eventKey="1">
-          <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> How do I check my account balance?
-          </Accordion.Header>
-          <Accordion.Body>
-          You can see this anytime on your accounts dashboard. Login with your username and password to view your Available Balance
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item className="my-3 border-top faq-1" eventKey="2">
-          <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> I forgot my password, what shoiuld I do?
-          </Accordion.Header>
-          <Accordion.Body>
-          Visit the password reset page, type in your email address and click the `Reset` button. You will get an email guiding you on how to reset your lost password.
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item className="my-3 border-top faq-1" eventKey="3">
-          <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> How will I know that the withdrawal has been successful?
-          </Accordion.Header>
-          <Accordion.Body>
-          You will get an automatic notification via your registered email once we send the funds and you can always check your transactions or account balance. Your chosen payment system dictates how long it will take for the funds to reach you.
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item className="my-3 border-top faq-1" eventKey="4">
-          <Accordion.Header>
-            <AiOutlineQuestionCircle className="me-2" /> How much can I withdraw?
-          </Accordion.Header>
-          <Accordion.Body>
-          You can withdraw the full amount of your account balance minus the funds that are used currently for supporting opened positions.
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+    <div className="relative py-16 px-6 bg-[#0d0f1a]">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white">
+          Frequently Asked <span className="text-yellow-400">Questions</span>
+        </h1>
+        <p className="text-gray-300 text-lg mt-4">
+          We answer some of your frequently asked questions regarding our
+          platform. If your query is not here, please contact us.
+        </p>
+
+        {/* FAQ Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between mt-10">
+          {/* Left - Image */}
+          <div className="hidden md:block w-1/3">
+            <img src={questionMark} alt="Man thinking" className="w-full" />
+          </div>
+
+          {/* Right - FAQ Accordion */}
+          <div className="w-full md:w-2/3">
+            <Accordion defaultActiveKey="0">
+              {faqData.map((faq, index) => (
+                <Accordion.Item
+                  eventKey={index.toString()}
+                  key={index}
+                  className="my-4 border-0 shadow-lg transition-all duration-300 hover:shadow-yellow-400/50"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
+                    backdropFilter: "blur(12px)",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                    borderRadius: "12px",
+                  }}
+                >
+                  <Accordion.Header>
+                    <AiOutlineQuestionCircle className="text-yellow-400 text-xl mr-3" />
+                    {faq.question}
+                  </Accordion.Header>
+                  <Accordion.Body className="text-gray-300">{faq.answer}</Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
+// FAQ Data
+const faqData = [
+  {
+    question: "When can I deposit/withdraw from my investment account?",
+    answer:
+      "Deposits and withdrawals are available anytime. Ensure your funds are not in ongoing trades before withdrawing. Your available balance is shown on the dashboard.",
+  },
+  {
+    question: "How do I check my account balance?",
+    answer:
+      "You can check your balance anytime by logging into your dashboard with your username and password.",
+  },
+  {
+    question: "I forgot my password, what should I do?",
+    answer:
+      "Go to the password reset page, enter your email, and click 'Reset'. You will receive an email with instructions.",
+  },
+  {
+    question: "How will I know that my withdrawal was successful?",
+    answer:
+      "You will receive an email notification once the funds are sent. You can also check your transactions or account balance.",
+  },
+  {
+    question: "How much can I withdraw?",
+    answer:
+      "You can withdraw your full available balance except for funds supporting open positions.",
+  },
+];
 
 export default Faq;

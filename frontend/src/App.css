@@ -75,6 +75,7 @@ body::-webkit-scrollbar,
 .scroll::-webkit-scrollbar {
  width: 7px;
  height: 20px;
+ background-color: #282e3b;
 }
 body::-webkit-scrollbar-thumb,
 .App::-webkit-scrollbar-thumb,
@@ -553,9 +554,6 @@ select:hover, option:hover {
 }
 
 .btn-custom {
-  background-color: #fff !important;
-  border-color: #cca354 !important;
-  color: #cca354 !important;
 }
 
 .btn-custom:hover {
@@ -685,9 +683,8 @@ select:hover, option:hover {
   box-shadow: 0 0 10px 2px #cca354 !important;
 }
 
-.form-con {
-  border: 1px solid #cca354 !important;
-  background-color: transparent !important;
+.form-con::placeholder {
+color: black;
 }
 
 .nav-text {
@@ -1007,4 +1004,11 @@ select:hover, option:hover {
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.hero {
+  background-image: url("./images/bitcoins-mining-concept_173387-677.avif");
+}
+
+.box-shad {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

@@ -4,43 +4,72 @@ import invest from "../images/pip-fill.svg";
 import wallet from "../images/wallet2.svg";
 
 const HowItWorks = () => {
-  //create an array of objects
   const howItWorks = [
-    {
-      id: 1,
-      img: person,
-      title: "Create Account",
-    },
-    {
-      id: 2,
-      img: invest,
-      title: "Invest To Plan",
-    },
-    {
-      id: 3,
-      img: wallet,
-      title: "Get Profit",
-    },
+    { id: 1, img: person, title: "Create Account" },
+    { id: 2, img: invest, title: "Invest To Plan" },
+    { id: 3, img: wallet, title: "Get Profit" },
   ];
+
   return (
-    <div className="team-bg pb-5">
-      <h1 className="mt-5 py-5 text-light display-4">
-        How Bitgrow <span className="title-spn">Investment Works</span>
-      </h1>
-      <p className="my-4 text-light">
-        Get involved in our tremendous platform and Invest. We will utilize your
-        money and give you profit in <br></br> your wallet automatically.
-      </p>
-      <div className="md:flex gap-4">
-        {howItWorks.map((item) => (
-          <div className="w-[80%] m-auto border-0 wcv my-5" key={item.id}>
-            <div className="hIworks  bg-dark">
-              <p className="hIworks-id bg-dark ">{item.id}</p>
-              <img className="ml-7" src={item.img} alt={item.title} />
+    <div className="relative py-16 pb-[8%] items-center flex flex-col px-6 text-center bg-white">
+      {/* Background Overlay */}
+      {/* <div className="absolute inset-0 bg-black/60"></div> */}
+
+      {/* Content */}
+      <div className="relative z-10">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0d0f1a]">
+          How FredKinectics <span className="text-yellow-400">Investment Works</span>
+        </h1>
+        <p className="text-[#0d0f1a] text-lg mt-4">
+          Get involved in our platform and invest. We will utilize your money
+          and send profits directly to your wallet.
+        </p>
+
+        {/* Steps Section */}
+        <div className="mt-12  flex flex-col items-center">
+          <div className="grid  grid-cols-3 gap-11 relative w-full max-w-4xl">
+            {howItWorks.map((item) => (
+              <div
+                key={item.id}
+                className="relative bg-[#0d0f1a] flex flex-col items-center p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105"
+                // style={{
+                //   background:
+                //     "linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05))",
+                //   backdropFilter: "blur(12px)",
+                //   border: "1px solid rgba(255, 255, 255, 0.3)",
+                // }}
+              >
+                {/* Icon */}
+                <img src={item.img} alt={item.title} className="w-16 h-16" />
+                {/* Title */}
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  {item.title}
+                </h3>
+              </div>
+            ))}
+
+            {/* Stepper Dotted Line */}
+            <div className="absolute top-[120%] left-0 right-0 flex items-center w-full transform -translate-y-1/2">
+              {howItWorks.map((_, index) => (
+                index < howItWorks.length - 1 && (
+                  <div key={index} className="flex-1 border-dotted border-t-4 border-[#0d0f1a] opacity-50"></div>
+                )
+              ))}
             </div>
-            <h3 className="my-4 ">{item.title}</h3>
+
+            {/* Stepper Glowing Circles */}
+            <div className="absolute top-[120%] left-0 right-0 flex justify-between w-full transform -translate-y-1/2">
+              {howItWorks.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-8 h-8 flex items-center justify-center bg-[#0d0f1a] text-yellow-500 font-bold rounded-full shadow-lg border border-[#0d0f1a"
+                >
+                  {item.id}
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -21,31 +21,46 @@ const Team = () => {
       position: "Technical Analyst",
     },
   ];
+
   return (
-    <div className="team-bg ">
-      <h1 className="display-4 pt-5 text-light">
-        Our Expert <span className="title-spn">Team Members</span>
+    <div className="bg-[#0d0f1a] py-16 text-center">
+      {/* Heading Section */}
+      <h1 className="text-4xl md:text-5xl font-bold text-white">
+        Our Expert <span className="text-yellow-500">Team Members</span>
       </h1>
-      <p className="mt-3 text-light">
-        We have a great team including developers, designers, and Traders. The
-        Team always <br></br> working hard to give you the maximum profit.{" "}
+      <p className="text-gray-400 text-lg mt-4">
+        Our dedicated team of developers, designers, and traders works tirelessly to
+        maximize your profits.
       </p>
-      <div className="team row mx-5">
+
+      {/* Team Members Grid */}
+      <div className="grid md:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
         {teams.map((team) => (
-          <div className="team-member col-lg-3 bg-secondary" key={team.id}>
-            <div className="team-img">
-              <img src={team.img} alt="user" />
+          <div
+            key={team.id}
+            className="relative group overflow-hidden rounded-2xl bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700"
+          >
+            {/* Image with Overlay */}
+            <div className="relative w-full h-64">
+              <img
+                src={team.img}
+                alt={team.name}
+                className="w-full h-full object-cover rounded-t-2xl group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <p className="text-start text-light fw-bold fs-3 ms-2 mt-3">
-              {team.name}
-            </p>
-            <p className="text-start text-light ms-2 mb-2 fs-5">
-              {team.position}
-            </p>
+
+            {/* Info Section */}
+            <div className="p-5 text-white">
+              <h3 className="text-xl font-semibold">{team.name}</h3>
+              <p className="text-blue-400">{team.position}</p>
+            </div>
           </div>
         ))}
       </div>
-      <button className="btn btn-custom m-auto my-5">
+
+      {/* WhitePaper Download Button */}
+      <button className="mt-10 px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-all duration-300">
         Download WhitePaper
       </button>
     </div>
