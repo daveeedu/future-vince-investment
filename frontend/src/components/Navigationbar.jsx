@@ -33,13 +33,13 @@ const Navigationbar = ({ isSignedUp, setIsSignedUp }) => {
         variant="black"
         className={`${isNavbarFixed ? "fixed-top bg-[#161831]" : "bg-[#161831]"}`}
       >
-        <div className="w-[95%]  flex lg:justify-stretch justify-between mx-auto">
+        <div className="w-[95%]  flex items-center lg:justify-stretch justify-between mx-auto">
           <Navbar.Brand href="#home">
             <Link className="text-white logo text-decoration-none flex" to="./">
-              <img src={logoTwo} className="w-[70%]" alt="Logo" />
+              <img src={logoTwo} className="w-[70%] h-[60%] md:w-[70%]" alt="Logo" />
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle className="bg-secondary h-11 mt-8 w-14" aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle className="bg-secondary h-11  w-14" aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="navbar-collapse-custom">
             <Nav className="ms-auto flex items-center gap-4">
               <Nav.Link href={pageUrls.home}></Nav.Link>

@@ -23,7 +23,7 @@ const RepresentativePost = ({ setIsSignedUp }) => {
       </div>
 
       {/* Payment Methods Section */}
-      <div className="mt-16">
+      <div className="mt-16 px-8 md:px-0">
         <h1 className="text-3xl font-bold">
           Payment We <span className="text-yellow-500">Accept</span>
         </h1>
@@ -33,7 +33,7 @@ const RepresentativePost = ({ setIsSignedUp }) => {
         </p>
 
         {/* Payment Method Logos */}
-        <div className="flex justify-center gap-6 mt-8">
+        <div className="flex flex-wrap flex-2 justify-center gap-6 mt-8">
           {paymentMethods.map((method, index) => (
             <div
               key={index}
