@@ -25,7 +25,7 @@ const AboutUs = ({ isSignedUp, setIsSignedUp }) => {
 
         {/* Animated Divider */}
         <div className="w-20 h-1 bg-yellow-500 mx-auto rounded-full animate-pulse"></div>
-
+ 
         {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-6 pt-4">
           <Link to="/SignUp" onClick={() => setIsSignedUp(false)}>
