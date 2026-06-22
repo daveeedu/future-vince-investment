@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <div className="bg-[#0d0f1a] text-white py-12 px-10">
       {/* Main Footer Content */}
-      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-8xl mx-auto grid grid-cols-1 justify-start md:grid-cols-4 gap-8">
         {/* Certificate Section */}
         <div>
           <h5 className="flex items-center text-xl font-semibold mb-4">
@@ -36,39 +36,77 @@ const Footer = () => {
         </div>
 
         {/* Company Links */}
-        <div>
-          <h5 className="text-xl font-semibold mb-4">Our Company</h5>
-          <ul className="space-y-2">
-            <li className="hover:text-yellow-500 transition"><Link  className="hover:text-yellow-500 transition text-yellow-500" to="/">Home</Link></li>
-            <li className="hover:text-yellow-500 transition"><Link  className="hover:text-yellow-500 transition text-yellow-500" to="/plans">Plans</Link></li>
-            <li className="hover:text-yellow-500 transition"><Link  className="hover:text-yellow-500 transition text-yellow-500" to="/team">Team</Link></li>
-          </ul>
+        <div className="flex flex-col items-center text-center w-full">
+          <div className="w-full ">
+            <h5 className="text-xl text-left md:text-center font-semibold mb-4">
+              Our Company
+            </h5>
+            <div className="flex flex-col  space-y-2">
+            <Link
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+                to="/"
+              >
+                Home
+              </Link>
+              <Link
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+                to="/plans"
+              >
+                Plans
+              </Link>
+              <Link
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+                to="/team"
+              >
+                Team
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Useful Links */}
         <div>
-          <h5 className="text-xl font-semibold mb-4">Useful Links</h5>
-          <ul className="space-y-2">
-            <li className="hover:text-yellow-500 transition"><Link  to="/login" className="hover:text-yellow-500 transition text-yellow-500">Login</Link></li>
-            <li className="hover:text-yellow-500 transition"><Link  className="hover:text-yellow-500 transition text-yellow-500" to="/signup">Signup</Link></li>
-            <li className="hover:text-yellow-500 transition"><Link  className="hover:text-yellow-500 transition text-yellow-500" to="/faq">FAQ</Link></li>
-          </ul>
+          <h5 className="text-xl text-left md:text-center font-semibold mb-4">Useful Links</h5>
+          <div className="flex flex-col  space-y-2">
+          <Link
+                to="/login"
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+              >
+                Login
+              </Link>
+              <Link
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+                to="/signup"
+              >
+                Signup
+              </Link>
+              <Link
+                className="hover:text-yellow-500 text-left md:text-center transition text-yellow-500"
+                to="/faq"
+              >
+                FAQ
+              </Link>
+          </div>
+      
         </div>
 
         {/* Contact Section */}
         <div>
-          <h5 className="text-xl font-semibold mb-4">Contact</h5>
-          <ul className="space-y-3">
-            <li className="flex items-center text-yellow-400"><FaHouseUser className="mr-2" /> 1263 Simi Town Center Way Suite H-6 LA</li>
-            <li className="flex items-center text-yellow-400"><FaEnvelope className="mr-2" /> bitgrowinvestment.com@gmail.com</li>
-            <li className="flex items-center text-yellow-400"><FaPhone className="mr-2" /> +1 (510) 545-4051</li>
-          </ul>
+          <h5 className="text-xl text-left md:text-center font-semibold mb-4">Contact</h5>
+          <div className="flex flex-col space-y-1">
+            <p className="flex items-center text-left md:text-center gap-4 text-yellow-500">  1263 Simi Town Center Way LA</p>
+            <p className="flex items-center text-left md:text-center gap-4 text-yellow-500">  bitgrowinvestment.com@gmail.com</p>
+            <p className="flex items-center text-left md:text-center gap-4 text-yellow-500"> +1 (510) 545-4051</p>
+
+          </div>
         </div>
       </div>
 
       {/* Subscribe Section */}
       <div className="mt-10 bg-[#1b1d2a] rounded-lg p-6 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-4">Subscribe to Our Newsletter</h2>
+        <h2 className="text-2xl font-bold text-center mb-4">
+          Subscribe to Our Newsletter
+        </h2>
         <p className="text-gray-400 text-center mb-4">
           Get the latest updates about our system and the global market.
         </p>
@@ -79,10 +117,9 @@ const Footer = () => {
               placeholder="Enter your email"
             />
             <InputGroup.Text>
-            <div className="bg-yellow-500 w-full h-[100%] text-white flex items-center px-4 rounded-r-lg cursor-pointer  transition">
-            <AiOutlineMail className="text-lg" />
-            </div>
-              
+              <div className="bg-yellow-500 w-full h-[100%] text-gray-800 flex items-center px-4 rounded-r-lg cursor-pointer  transition">
+                <AiOutlineMail className="text-lg" />
+              </div>
             </InputGroup.Text>
           </InputGroup>
         </form>
@@ -95,10 +132,18 @@ const Footer = () => {
           <span>2024 FredKinectics Investment. All rights reserved.</span>
         </div>
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-yellow-500 transition"><SiFacebook /></a>
-          <a href="#" className="hover:text-yellow-500 transition"><FaInstagramSquare /></a>
-          <a href="#" className="hover:text-yellow-500 transition"><SiTwitter /></a>
-          <a href="#" className="hover:text-yellow-500 transition"><FaLinkedinIn /></a>
+          <a href="#" className="hover:text-yellow-500 transition">
+            <SiFacebook />
+          </a>
+          <a href="#" className="hover:text-yellow-500 transition">
+            <FaInstagramSquare />
+          </a>
+          <a href="#" className="hover:text-yellow-500 transition">
+            <SiTwitter />
+          </a>
+          <a href="#" className="hover:text-yellow-500 transition">
+            <FaLinkedinIn />
+          </a>
         </div>
       </div>
 
@@ -108,7 +153,11 @@ const Footer = () => {
           <Modal.Title>Official Certificate</Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <img className="w-full h-auto rounded-lg" src={cert} alt="Certificate" />
+          <img
+            className="w-full h-auto rounded-lg"
+            src={cert}
+            alt="Certificate"
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>

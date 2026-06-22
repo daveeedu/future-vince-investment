@@ -27,7 +27,7 @@ const HowItWorks = () => {
 
         {/* Steps Section */}
         <div className="mt-12  flex flex-col items-center">
-          <div className="grid  grid-cols-3 gap-11 relative w-full max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-11 relative w-full max-w-4xl">
             {howItWorks.map((item) => (
               <div
                 key={item.id}
@@ -49,7 +49,7 @@ const HowItWorks = () => {
             ))}
 
             {/* Stepper Dotted Line */}
-            <div className="absolute top-[120%] left-0 right-0 flex items-center w-full transform -translate-y-1/2">
+            <div className="absolute hidden top-[120%] left-0 right-0 md:flex items-center w-full transform -translate-y-1/2">
               {howItWorks.map((_, index) => (
                 index < howItWorks.length - 1 && (
                   <div key={index} className="flex-1 border-dotted border-t-4 border-[#0d0f1a] opacity-50"></div>
@@ -58,7 +58,7 @@ const HowItWorks = () => {
             </div>
 
             {/* Stepper Glowing Circles */}
-            <div className="absolute top-[120%] left-0 right-0 flex justify-between w-full transform -translate-y-1/2">
+            <div className="absolute hidden top-[120%] left-0 right-0 md:flex justify-between w-full transform -translate-y-1/2">
               {howItWorks.map((item) => (
                 <div
                   key={item.id}

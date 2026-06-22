@@ -1,9 +1,10 @@
 import React from "react";
+import elonImg from "../images/elon.jpg"
 
 const Team = () => {
   const teams = [
     {
-      id: 1,
+      id: 4,
       name: "Raj Kunal",
       img: "./images/team3.jpeg",
       position: "CEO",
@@ -20,10 +21,17 @@ const Team = () => {
       img: "./images/team1.jpeg",
       position: "Technical Analyst",
     },
+    {
+  
+    id: 1,
+    name: "Elon Musk",
+    img: elonImg,
+    position: "Stakeholder"
+  },
   ];
 
   return (
-    <div className="bg-[#0d0f1a] py-16 text-center">
+    <div className="bg-[#0d0f1a] py-16 px-8 md text-center">
       {/* Heading Section */}
       <h1 className="text-4xl md:text-5xl font-bold text-white">
         Our Expert <span className="text-yellow-500">Team Members</span>
@@ -34,7 +42,7 @@ const Team = () => {
       </p>
 
       {/* Team Members Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10 max-w-6xl mx-auto">
         {teams.map((team) => (
           <div
             key={team.id}

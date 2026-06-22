@@ -95,7 +95,7 @@ const InvestmentPlans = ({ setIsSignedUp }) => {
         <hr className="mt-16 border-t-4 border-gray-300/90 w-full max-w-4xl mx-auto" />
 
         {/* Warnings & Referral Section */}
-        <div className="relative flex items-center justify-center gap-4 py-10 px-6 text-white text-center">
+        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-4 py-10 px-6 text-white text-center">
           {/* Warning Box */}
           <div className="flex gap-3 bg-red-100 border-l-4 text-left border-red-500 text-red-700 px-4 py-3 rounded-md w-full max-w-xl">
             <ImWarning className="text-red-500 text-3xl" />
