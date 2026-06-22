@@ -1,14 +1,19 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express()
 const port = process.env.PORT || 9000
 
-app.use(express.static(path.join(__dirname, "../build")))
+app.use(express.static(path.join(__dirname, "../dist")))
 
 app.get("/ping", (req, res)=> res.send("Pong!"))
 
 app.get("/*", (req, res) => {
- const file = path.join(__dirname, "../build", "index.html");
+ const file = path.join(__dirname, "../dist", "index.html");
 
  res.sendFile(file)
 })

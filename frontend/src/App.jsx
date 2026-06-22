@@ -17,7 +17,6 @@ import Users from "./components/admin/Users";
 import AdminDash from "./components/admin/AdminDash";
 import AdminDash2 from "./components/admin/AdminDash2";
 import { useState } from "react";
-import "tailwindcss/tailwind.css"
 import config from "./utils/config";
 // import DeleteModal from './components/modal/DeleteModal'
 

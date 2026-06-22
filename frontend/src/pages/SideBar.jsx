@@ -8,7 +8,7 @@ import logoTwo from "../images/btc-logo1.png";
 
 
 import { Link, useLocation } from "react-router-dom";
-import links from "../utils/linkTree";
+import links from "../utils/linkTree.jsx";
 
 const SidebarSection = styled.div`
 		background-color: var(--c_gray);
