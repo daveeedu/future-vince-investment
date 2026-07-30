@@ -12,7 +12,7 @@ import {
 import { SiFacebook, SiTwitter } from "react-icons/si";
 import { InputGroup, FormControl, Modal, Button } from "react-bootstrap";
 import { AiOutlineMail } from "react-icons/ai";
-import cert from "../images/cert-invest.JPG";
+import cert from "../../images/cert-invest.JPG";
 
 const Footer = () => {
   const [showModal, setShowModal] = useState(false);

@@ -2,13 +2,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 // import { IMainLogo } from "../../utils/icons";
-import Storage from "../utils/storage";
-import logo from "../images/tesla-3.svg";
-import logoTwo from "../images/btc-logo1.png";
+import Storage from "../../lib/storage.js";
+import logo from "../../images/tesla-3.svg";
+import logoTwo from "../../images/btc-logo1.png";
 
 
 import { Link, useLocation } from "react-router-dom";
-import links from "../utils/linkTree.jsx";
+import links from "../../utils/linkTree.jsx";
 
 const SidebarSection = styled.div`
 		background-color: var(--c_gray);

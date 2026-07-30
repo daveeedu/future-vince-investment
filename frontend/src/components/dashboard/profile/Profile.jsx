@@ -3,8 +3,8 @@ import Dashboard from "../../../pages/Dashboard";
 import { TbLock } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
 import EditPhoneModal from "../../modal/EditPhoneModal";
-import DashNavbar from "../../DashNavbar";
-import BACKEND from "../../../utils/backend";
+import DashNavbar from "../../layout/DashNavbar.jsx";
+import BACKEND from "../../../services/backend.js";
 import { ImWhatsapp } from "react-icons/im";
 
 const Profile = () => {

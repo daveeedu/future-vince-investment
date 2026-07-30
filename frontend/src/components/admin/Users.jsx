@@ -1,8 +1,8 @@
 import React from "react";
 import AdminDash from "./AdminDash";
-import BACKEND from "../../utils/backend";
+import BACKEND from "../../services/backend.js";
 import UsersTable from "./users.component";
-import DashNavbar from "../DashNavbar";
+import DashNavbar from "../layout/DashNavbar.jsx";
 import Dashboard from "../../pages/Dashboard";
 
 class Users extends React.Component {

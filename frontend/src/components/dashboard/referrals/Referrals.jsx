@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Dashboard from "../../../pages/Dashboard";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import DashNavbar from "../../DashNavbar";
-import BACKEND from "../../../utils/backend";
+import DashNavbar from "../../layout/DashNavbar.jsx";
+import BACKEND from "../../../services/backend.js";
 import { ImWhatsapp } from "react-icons/im";
 
 const Reinvest = () => {

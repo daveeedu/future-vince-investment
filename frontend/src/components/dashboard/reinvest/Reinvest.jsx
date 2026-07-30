@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Dashboard from "../../../pages/Dashboard";
-import DashNavbar from "../../DashNavbar";
-import BACKEND from '../../../utils/backend';
-import Storage from "../../../utils/storage";
+import DashNavbar from "../../layout/DashNavbar.jsx";
+import BACKEND from '../../../services/backend.js';
+import Storage from "../../../lib/storage.js";
 import { ImWhatsapp } from "react-icons/im";
 
 const Reinvest = () => {

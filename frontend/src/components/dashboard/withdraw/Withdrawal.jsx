@@ -1,9 +1,9 @@
 import React from "react";
 import Dashboard from "../../../pages/Dashboard";
-import Storage from "../../../utils/storage";
-import DashNavbar from "../../DashNavbar";
-import BACKEND from "../../../utils/backend";
-import Alert from "../../../utils/alert";
+import Storage from "../../../lib/storage.js";
+import DashNavbar from "../../layout/DashNavbar.jsx";
+import BACKEND from "../../../services/backend.js";
+import Alert from "../../../lib/alert.js";
 import { ImWhatsapp } from "react-icons/im";
 
 

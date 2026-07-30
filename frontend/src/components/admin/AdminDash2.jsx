@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import AdminDash from "./AdminDash";
-import BACKEND from "../../utils/backend";
-import Storage from "../../utils/storage";
+import BACKEND from "../../services/backend.js";
+import Storage from "../../lib/storage.js";
 import Dashboard from "../../pages/Dashboard";
-import DashNavbar from "../DashNavbar";
+import DashNavbar from "../layout/DashNavbar.jsx";
 import dayjs from "dayjs";
 import { FcCheckmark } from 'react-icons/fc';
 import { FaTimes } from 'react-icons/fa';

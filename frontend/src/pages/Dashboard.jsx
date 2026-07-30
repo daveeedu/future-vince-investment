@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
-import Sidebar from "./SideBar";
+import Sidebar from "../components/layout/Sidebar.jsx";
 
 const Container = styled.div`
 width: 100%;

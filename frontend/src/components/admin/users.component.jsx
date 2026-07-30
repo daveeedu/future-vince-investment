@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { BiEnvelope } from "react-icons/bi";
 import { FaUserAltSlash, FaUser } from "react-icons/fa";
 import dayjs from "dayjs";
-import BACKEND from "../../utils/backend";
+import BACKEND from "../../services/backend.js";
 import DeleteModal from "../modal/DeleteModal";
 
 function Users({ user, that}) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Dashboard from "../../../pages/Dashboard";
-import DashNavbar from "../../DashNavbar";
+import DashNavbar from "../../layout/DashNavbar.jsx";
 import ChangePasswordModal from "../../modal/ChangePasswordModal";
 import { ImWhatsapp } from "react-icons/im";
 

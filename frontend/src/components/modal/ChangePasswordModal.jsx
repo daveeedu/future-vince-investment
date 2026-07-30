@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Alert from "../../utils/alert";
-import BACKEND from '../../utils/backend';
+import Alert from "../../lib/alert.js";
+import BACKEND from '../../services/backend.js';
 
 function ChangePasswordModal(props) {
     let { show, onHide, title, body, footer } = props;

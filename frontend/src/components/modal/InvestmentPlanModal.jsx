@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import BACKEND from "../../utils/backend";
+import BACKEND from "../../services/backend.js";
 import { AiFillCopy } from "react-icons/ai";
-import Alert from "../../utils/alert";
+import Alert from "../../lib/alert.js";
 
 function InvestmentPlanModal(props) {
   let { show, onHide, id, title, roi, min, max, days } = props;

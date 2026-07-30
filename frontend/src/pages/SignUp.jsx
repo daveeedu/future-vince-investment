@@ -7,7 +7,7 @@ import { SiFacebook, SiTwitter } from "react-icons/si";
 import Login from "./Login";
 import Action from "../actions/signup";
 import { Link } from "react-router-dom";
-import config from "../utils/config";
+import config from "../config/app.config.js";
 import logoTwo from "../images/logo2.png";
 import bgImage from "../images/btc-img-2.jpg";
 
@@ -66,21 +66,6 @@ const SignUp = ({ setIsSignedUp, isSignedUp }) => {
             <h1 className="text-white text-[80px] font-bold">Explore The Largest <span className="text-yellow-500">BTC</span> Trading Platform <br/></h1>
             <p className="text-gray-300 mt-4 text-2xl max-w-[60%]">Join us and start your journey with the most advanced and secure trading platform.</p>
           </div>
-		  {/* <div className="absolute bottom-8 w-full text-left px-6">
-            <p className="text-gray-200 mb-4">
-              Discover and cherish your most precious moments with us.
-            </p>
-            <div className="flex items-center">
-              <input
-                type="text"
-                placeholder="Search memories..."
-                className="w-3/4 p-3 rounded-l-lg text-gray-700 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 "
-              />
-              <button className="bg-blue-500 hover:bg-blue-600 p-[17px] rounded-r-lg text-white font-semibold">
-                Search
-              </button>
-            </div>
-          </div> */}
         </div>
 
         <div className="w-full md:w-1/2 h-[100%] flex justify-center items-center">

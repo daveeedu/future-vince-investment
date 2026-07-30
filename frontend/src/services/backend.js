@@ -1,5 +1,5 @@
-import API from './axios'
-import Alert from "./alert"
+import API from '../lib/axios.js';
+import Alert from "../lib/alert.js";
 
 class BACKEND {
   constructor() {
@@ -33,7 +33,7 @@ class BACKEND {
         return false
       }
     }).catch(function (e) {
-       const err = "error"
+       const err = "error";
       const message = e.message || e[err] || "Something went wrong";
 
       Alert({
@@ -156,7 +156,6 @@ class BACKEND {
   }
 
   changePassword(payload) {
-    console.log(payload)
     Alert({
       type: "info",
       message: "Processing request...",

@@ -1,5 +1,5 @@
-import BACKEND from "../utils/backend";
-import Alert from "../utils/alert";
+import BACKEND from "../services/backend.js";
+import Alert from "../lib/alert.js";
 
 class signupAction {
  addData (e){

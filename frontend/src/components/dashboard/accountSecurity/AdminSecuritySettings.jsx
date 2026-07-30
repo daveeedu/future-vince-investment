@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminDash from "../../admin/AdminDash";
-import DashNavbar from "../../DashNavbar";
+import DashNavbar from "../../layout/DashNavbar.jsx";
 import ChangePasswordModal from "../../modal/ChangePasswordModal";
 import Dashboard from "../../../pages/Dashboard";
 

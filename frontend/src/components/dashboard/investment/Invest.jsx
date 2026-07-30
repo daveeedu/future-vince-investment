@@ -3,7 +3,7 @@ import Dashboard from "../../../pages/Dashboard";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useState } from "react";
 import InvestmentPlanModal from "../../modal/InvestmentPlanModal";
-import DashNavbar from "../../DashNavbar";
+import DashNavbar from "../../layout/DashNavbar.jsx";
 import { ImWhatsapp } from "react-icons/im";
 
 const Invest = () => {

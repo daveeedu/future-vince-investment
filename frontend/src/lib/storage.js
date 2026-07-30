@@ -7,7 +7,7 @@ class Storage {
     if(auth) return JSON.parse(auth);
     else throw new Error('no token');
   }catch(e){
-    return null
+    return null;
   }
  }
 
@@ -23,4 +23,4 @@ class Storage {
  }
 }
 
-export default Storage
+export default Storage;

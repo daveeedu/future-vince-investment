@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import propTypes from 'prop-types'
 import Avatar from 'react-avatar';
-import Storage from "../utils/storage";
-import history from "../utils/history";
+import Storage from "../../lib/storage.js";
+import history from "../../utils/history.js";
 import styled from "styled-components";
 
 

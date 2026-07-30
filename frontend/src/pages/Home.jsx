@@ -2,27 +2,20 @@ import React, { useState }from "react";
 import Hero from "../components/Hero";
 import AboutUs from "../components/AboutUs";
 import InvestmentPlans from "../components/InvestmentPlans";
-import Note from "../components/Note";
 import WhyChoseVice from "../components/WhyChoseVice";
-import LiveTrade from "../components/LiveTrade";
 import HowItWorks from "../components/HowItWorks";
 import Faq from "../components/Faq";
 import UserFeedBacks from "../components/UserFeedBacks";
 import Team from "../components/Team";
 import DepositAndWithdrawal from "../components/DepositAndWithdrawal";
 import RepresentativePost from "../components/RepresentativePost";
-// import PaymentMethod from '../components/PaymentMethod'
 import News from "../components/News";
-import Subscribe from "../components/Subscribe";
-// import Location from '../components/SimpleMap'
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer.jsx";
 import Scroller from "../components/Scroller";
-// import SimpleMap from '../components/SimpleMap'
 
-import BACKEND from "../utils/backend";
-import History from "../utils/history";
-import Storage from "../utils/storage";
-import Navigationbar from "../components/Navigationbar";
+import BACKEND from "../services/backend.js";
+import Storage from "../lib/storage.js";
+import Navigationbar from "../components/layout/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -51,9 +44,7 @@ const Home = () => {
       <Hero />
       <AboutUs />
       <InvestmentPlans isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
-      {/* <Note /> */}
       <WhyChoseVice />
-      {/* <LiveTrade /> */}
       <HowItWorks />
       <Faq />
       <UserFeedBacks />
@@ -61,7 +52,6 @@ const Home = () => {
       <DepositAndWithdrawal />
       <RepresentativePost isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp} />
       <News />
-      {/* <Subscribe /> */}
       <Footer />
     </div>
   );

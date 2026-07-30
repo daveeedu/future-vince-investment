@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Dashboard from "./Dashboard";
-import BACKEND from "../utils/backend";
-import DashNavbar from "../components/DashNavbar";
-import Storage from "../utils/storage";
+import BACKEND from "../services/backend.js";
+import DashNavbar from "../components/layout/DashNavbar.jsx";
+import Storage from "../lib/storage.js";
 import dayjs from "dayjs";
 import { ImWhatsapp } from "react-icons/im";
 
@@ -12,33 +12,14 @@ const DashboardTwo = () => {
 	const [balance, setBalanced] = React.useState(0);
 	const [profit, setProfit] = React.useState(0);
 
-
-	console.log(user, invested, balance, profit)
-
-	// useEffect(() => {
-	// 	new BACKEND()
-	// 		.isAuthenticated()
-	// 		.then((user) => {
-	// 			if (user) {
-	// 				setUser(user?.data);
-	// 				const {activities, ...rest} = user?.data
-	// 				console.log(rest)
-	// 				Storage.set("user", rest);
-	// 			}
-	// 		})
-	// 		.catch(console.error);
-	// }, []);
-
 	useEffect(() => {
 		const fetchData = async () => {
 		  await getProfit();
 		  await getBalance();
-		//   await getTotalInvested();
 		};
 	
 		fetchData();
 	
-		// Fetch user data and set it in state and local storage
 		const fetchUserData = async () => {
 		  try {
 			const user = await new BACKEND().isAuthenticated();
@@ -62,12 +43,9 @@ const DashboardTwo = () => {
         } catch (error) {
 			console.error(error);
 		} 
-		// Implement your requestUsers logic here
 	  };
 
-	
 	  const getBalance = async () => {
-		// Implement your getBalance logic here
 		try {
 			const bank = await new BACKEND().getBalance();
             setBalanced(bank.data);
@@ -75,17 +53,6 @@ const DashboardTwo = () => {
 			console.error(error);
 		} 
 	  };
-	  
-	
-	//   const getTotalInvested = async () => {
-	// 	try {
-	// 		const invested = await new BACKEND().getTotalInvested();
-    //         setInvested(invested.data);
-    //     } catch (error) {
-	// 		console.error(error);
-	// 	} 
-	// 	// Implement your getTotalInvested logic here
-	//   };
 
 
 	return (

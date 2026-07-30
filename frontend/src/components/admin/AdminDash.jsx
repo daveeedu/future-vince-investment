@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
-import { AdminSidebarData } from '../../data/AdminSidebarData';
+// import { AdminSidebarData } from '../../data/AdminSidebarData';
 
 
 function Dashboard () {
@@ -29,7 +29,7 @@ function Dashboard () {
               <AiOutlineClose />
             </Link> */}
           </li>
-          {AdminSidebarData.map((item, index) => {
+          {/* {AdminSidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName2}>
                 <Link to={item.path}>
@@ -38,7 +38,7 @@ function Dashboard () {
                 </Link>
               </li>
             )
-          })}
+          })} */}
         </ul>
       </nav>
       </IconContext.Provider>
